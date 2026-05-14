@@ -80,6 +80,7 @@ Co-Authored-By: (the agent's name and attribution byline)
 - Do not restate linter, formatter, or typechecker config.
 - Do not list installed skills or plugins.
 - Do not include generic quality slogans.
+- When `## Agent skills` and `docs/agents/` already exist (e.g. after `setup-skills`), **preserve** that section and rely on those files for issue-tracker, triage-label, and domain detail instead of inlining them.
 
 ## External Reference Rules
 

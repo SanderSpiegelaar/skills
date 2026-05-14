@@ -1,76 +1,146 @@
 ---
 name: to-prd
-description: Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wants to create a PRD from the current context.
+description: Turn conversation context or a greenfield idea into a production-grade PRD (executive summary, user stories with acceptance criteria, technical specs, AI requirements when applicable, risks) and publish it to the project issue tracker. Use when the user wants a PRD from context, wants to document requirements, plan a feature, or scope AI-powered work.
+license: MIT
 ---
 
-This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
+Design comprehensive PRDs that bridge business intent and technical execution—for modern software and AI-powered features. The issue tracker and triage label vocabulary should have been provided; run `/setup-skills` if not.
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/setup-skills` if not.
+## When to use
+
+- Starting a new product or feature cycle, or translating a vague idea into a concrete specification
+- Defining requirements for AI-powered features
+- Turning **current conversation context** into a tracker-backed PRD stakeholders can treat as scope
+- Stakeholders need a single source of truth for scope
+- User asks to write a PRD, document requirements, or plan a feature
+
+## Requirements quality
+
+Use concrete, measurable criteria. Avoid "fast", "easy", or "intuitive".
+
+```diff
+# Vague (BAD)
+- The search should be fast and return relevant results.
+- The UI must look modern and be easy to use.
+
+# Concrete (GOOD)
++ The search must return results within 200ms for a 10k record dataset.
++ The search algorithm must achieve >= 85% Precision@10 in benchmark evals.
++ The UI must follow the 'Vercel/Next.js' design system and achieve 100% Lighthouse Accessibility score.
+```
 
 ## Process
 
-1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the PRD, and respect any ADRs in the area you're touching.
+### Question protocol
 
-2. Sketch out the major modules you will need to build or modify to complete the implementation. Actively look for opportunities to extract deep modules that can be tested in isolation.
+Whenever you need answers or choices from the user during this skill—including discovery, gap-fill, module confirmation, or scoped feedback on a draft—**always use the Ask User Question tool** (the structured question UI). Do **not** rely on burying questions in plain chat when that tool is available: it keeps options explicit and responses easy to track. If the host has no equivalent tool, fall back to clearly numbered questions in messages.
 
-A deep module (as opposed to a shallow module) is one which encapsulates a lot of functionality in a simple, testable interface which rarely changes.
+### Context-aware discovery
 
-Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
+Before drafting, decide how much discovery you need:
 
-3. Write the PRD using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+- **Thin context** (vague idea, new thread, or explicit greenfield PRD): run **Phase 1–2** below in full. Ask about the core problem, success metrics, and constraints; map user flow and non-goals. Do not assume unstated context.
+- **Rich context** (ongoing technical conversation and repo understanding): **do not** force a full interview. Ask **0–3 targeted questions** only where a section would otherwise be guessed or must stay `TBD` (e.g. KPIs, deadlines, AI evaluation, compliance).
+
+### Phase 1: Discovery (the interview, when needed)
+
+Use **Ask User Question** for each discovery round (you can batch related topics into one form when the tool allows multiple questions).
+
+**Ask about (as applicable):**
+
+- **The core problem**: Why build this now?
+- **Success metrics**: How do we know it worked?
+- **Constraints**: Budget, tech stack, deadline, compliance?
+
+### Phase 2: Analysis and scoping
+
+- Map the **user flow**.
+- Define **non-goals** to protect the timeline.
+- Identify dependencies and hidden complexity.
+
+### Phase 3: Drafting and publication
+
+1. Explore the repo if you have not already. Use the project's domain glossary and respect ADRs in the areas you touch.
+
+2. Sketch the major modules to build or modify. Prefer **deep modules**: a lot of functionality behind a simple, stable, testable interface.
+
+3. Check with the user that the module breakdown matches their expectations. Confirm which modules should have tests—use **Ask User Question** for these confirmations.
+
+4. Write the PRD using the template below. Iterate: share a draft and invite feedback on specific sections when helpful.
+
+5. Publish to the project issue tracker. Apply the **`ready-for-agent`** triage label—no additional triage pass required.
+
+## Implementation guidelines
+
+### DO
+
+- **Define testing**: For AI systems, specify how to validate output quality and accuracy.
+- **Iterate**: Present a draft and ask for feedback on specific sections when useful; use **Ask User Question** when offering section-level choices or next-step options.
+
+### DON'T
+
+- **Skip discovery when context is thin**: Do not write a full PRD without filling obvious gaps (problem, success bar, constraints)—ask or mark `TBD`.
+- **Hallucinate constraints**: If the user did not specify stack, budget, or dates, ask or label **`TBD`**.
+
+## Example (trimmed)
+
+See [references/example-intelligent-search.md](references/example-intelligent-search.md) for a longer worked example.
+
+**Executive summary (excerpt):** Problem—finding snippets in large doc repos; solution—NL search with citations; success—50% faster task time, citation accuracy ≥ 95%.
+
+**User story (excerpt):** As a developer, I want to ask natural-language questions so I do not have to guess keywords. **AC:** multi-turn clarification; code blocks with a clear copy affordance.
+
+**AI (excerpt):** Tools: code search, grep, web fetch. Eval: 50 benchmark questions, 90% citation match to expected sources.
 
 <prd-template>
 
-## Problem Statement
+### 1. Executive summary
 
-The problem that the user is facing, from the user's perspective.
+- **Problem statement**: 1–2 sentences on the pain point.
+- **Proposed solution**: 1–2 sentences on the fix.
+- **Success criteria**: 3–5 measurable KPIs.
 
-## Solution
+### 2. User experience and functionality
 
-The solution to the problem, from the user's perspective.
+- **User personas**: Who is this for?
+- **User stories**: `As a [user], I want to [action] so that [benefit].` Provide a **long, numbered list** that covers the feature thoroughly.
+- **Acceptance criteria**: Bulleted "done" definitions per story (or grouped by story).
+- **Non-goals**: What we are **not** building (out of scope).
 
-## User Stories
+### 3. AI system requirements (if applicable)
 
-A LONG, numbered list of user stories. Each user story should be in the format of:
+- **Tool requirements**: Tools and APIs the system needs.
+- **Evaluation strategy**: How to measure output quality and accuracy.
 
-1. As an <actor>, I want a <feature>, so that <benefit>
+### 4. Technical specifications
 
-<user-story-example>
-1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
-</user-story-example>
+- **Architecture overview**: Data flow and component interaction.
+- **Integration points**: APIs, databases, auth.
+- **Security and privacy**: Data handling and compliance.
 
-This list of user stories should be extremely extensive and cover all aspects of the feature.
+#### Implementation decisions
 
-## Implementation Decisions
+Capture decisions here (no file paths or generic code snippets—they go stale):
 
-A list of implementation decisions that were made. This can include:
+- Modules built or modified; interfaces that change
+- Technical clarifications, architecture, schema, API contracts, important interactions
 
-- The modules that will be built/modified
-- The interfaces of those modules that will be modified
-- Technical clarifications from the developer
-- Architectural decisions
-- Schema changes
-- API contracts
-- Specific interactions
+**Exception:** If a prototype encodes a decision more precisely than prose (state machine, reducer, schema, type shape), inline only the decision-rich fragment and note it came from a prototype.
 
-Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
+### 5. Testing and validation
 
-Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
+- What makes a **good test** here (external behavior, not implementation details).
+- **Which modules** are in scope for automated tests.
+- **Prior art**: similar tests elsewhere in the codebase.
+- For AI: tie to evaluation strategy in section 3.
 
-## Testing Decisions
+### 6. Risks and roadmap
 
-A list of testing decisions that were made. Include:
+- **Phased rollout**: e.g. MVP → v1.1 → v2.0.
+- **Technical risks**: Latency, cost, dependency or vendor failure.
 
-- A description of what makes a good test (only test external behavior, not implementation details)
-- Which modules will be tested
-- Prior art for the tests (i.e. similar types of tests in the codebase)
+### 7. Further notes
 
-## Out of Scope
-
-A description of the things that are out of scope for this PRD.
-
-## Further Notes
-
-Any further notes about the feature.
+Any additional context that does not fit above.
 
 </prd-template>

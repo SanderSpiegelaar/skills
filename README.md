@@ -29,7 +29,7 @@ flowchart LR
 | [improve-codebase-architecture](skills/improve-codebase-architecture/) | `improve-codebase-architecture` | Find deepening and refactoring opportunities using `CONTEXT.md` and ADRs. |
 | [grill](skills/grill/) | `grill` | Stress-test a plan against the domain model; update `CONTEXT.md` and ADRs as decisions land. |
 | [ticket-researcher](skills/ticket-researcher/) | `ticket-researcher` | Expand thin tickets with research (e.g. web + library docs). |
-| [to-prd](skills/to-prd/) | `to-prd` | Turn conversation context into a PRD and publish it to the issue tracker. |
+| [to-prd](skills/to-prd/) | `to-prd` | Production-grade PRDs from conversation or greenfield ideas (including AI features); publish to the issue tracker. |
 | [to-issues](skills/to-issues/) | `to-issues` | Break a plan or PRD into independently grabbable tracker issues. |
 | [caveman](skills/caveman/) | `caveman` | Ultra-compressed replies to save tokens while keeping technical accuracy. |
 

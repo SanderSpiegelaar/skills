@@ -5,11 +5,17 @@ description: Grilling session that challenges your plan against the existing dom
 
 <what-to-do>
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions.
 
-Ask the questions one at a time, waiting for feedback on each question before continuing.
+**Research before each batch.** Ground yourself in repo truth first: `CONTEXT.md`, `CONTEXT-MAP.md` (if present), `docs/adr/` (and context-local ADRs), and the code. When external or library facts would sharpen options or replace vague prompts—API shapes, deprecations, ecosystem norms—use available tools (for example MCP **Exa** search/fetch, **Context7** for library docs, or web search). **Do not assume:** do not treat guesses as facts. If something stays unknown after reasonable repo read + lookup, state that in the question prompt and offer clear options anyway. Put **` (Recommended)`** on the option that best fits **verified or partially verified** evidence—not on a fabricated “likely” default.
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
+If a decision can be settled by exploring the codebase or docs alone, do that **instead of** asking.
+
+**In Cursor:** use the **`AskQuestion`** tool for discrete choices. On other hosts without that tool, ask the same batched multiple-choice questions in chat, with **` (Recommended)`** on one option per question. Include **3–4 questions** per call whenever that many independent decisions are ready (use fewer only when that is all that remains on the current branch).
+
+For **every** `AskQuestion` item that has options, append **` (Recommended)`** to the **label** of exactly **one** option.
+
+If a topic is not cleanly multiple-choice, use a short follow-up in chat or add an option such as **Something else (explain in chat)** so you do not force a false binary.
 
 </what-to-do>
 
@@ -52,6 +58,12 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 Create files lazily — only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
 
 ## During the session
+
+### Elicitation and research
+
+- Reuse the **research-before-batch** order from `<what-to-do>`: glossary and ADRs, then code; then targeted MCP or web lookup when it reduces questions or improves option quality.
+- After the user answers a batch, re-check docs and code when their choices change the model; run another lookup only when the next batch depends on external facts you have not yet verified.
+- Do not fabricate paths, commands, or behaviours to make options look informed; verify in-repo or cite what the lookup returned.
 
 ### Challenge against the glossary
 
