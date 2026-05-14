@@ -19,6 +19,7 @@ Why: this skill is a repeatable authoring workflow with pre-inspection, scoped o
 | `https://agents.md/` | official format guide | canonical | 2026-05-04 | high | AGENTS.md purpose, common sections, nested files, closest-file precedence | public format guidance | Supports path-backed and scoped instructions |
 | `https://developers.openai.com/codex/guides/agents-md` | official product docs | canonical | 2026-05-04 | high | Codex discovery order, global/project scopes, nested precedence, size cap, verification commands | OpenAI-specific behavior | Used only for compatibility guidance |
 | `https://agentskills.io/specification` | official spec | canonical | 2026-05-04 | high | Skill frontmatter, progressive disclosure, focused references | skill format guidance | Supports concise runtime file shape |
+| `skills/caveman/SKILL.md` | local canonical | canonical | 2026-05-14 | high | Default terse communication invoked before agents-md substantive work | in-repo skill when present | Default-on caveman pairing per project decision |
 
 ## Decisions
 
@@ -46,6 +47,10 @@ Why: this skill is a repeatable authoring workflow with pre-inspection, scoped o
    Status: adopted
    Why: inspection alone cannot verify scripts in greenfield repos; guessing violates the path/command verification gate.
 
+7. Default **caveman-first** each user turn/session and **commit + push** after `agents-md` tasks (with user opt-out and push safeguards); mirror in root `AGENTS.md` via **`## Agent runtime defaults`**; narrow “no skill lists” to allow that section only.
+   Status: adopted
+   Why: single shared contract for skill runtime and downstream repo agents; avoids silent skill dumps elsewhere.
+
 ## Coverage matrix
 
 | Dimension | Coverage status | Evidence |
@@ -58,6 +63,8 @@ Why: this skill is a repeatable authoring workflow with pre-inspection, scoped o
 | Low-signal / greenfield elicitation | complete | user request 2026-05-14, `AskQuestion` workflow in `SKILL.md` |
 | CLAUDE.md compatibility | complete | existing skill behavior, local repo convention |
 | Provider-specific variance | partial | OpenAI Codex docs covered; other tools deferred until a concrete repo need |
+| Caveman-first default | complete | user request 2026-05-14, `SKILL.md` §Mandatory agent defaults, `SPEC.md` runtime |
+| Post-task commit and push | complete | user request 2026-05-14, `SKILL.md` §Mandatory agent defaults, `SPEC.md` runtime |
 
 ## Open gaps
 
@@ -70,5 +77,6 @@ Further retrieval is currently low-yield. The source pack covers local repo poli
 
 ## Changelog
 
+- 2026-05-14: Default caveman-first + conditional commit/push in skill workflow; **`## Agent runtime defaults`** template; narrowed skill-list prohibition; SPEC runtime + SOURCES provenance (`SKILL.md`, `SPEC.md`, `SOURCES.md`).
 - 2026-05-14: Low-signal repository branch: elicit via Cursor `AskQuestion` before drafting; runtime contract and anti-pattern for fabricated commands (`SKILL.md`, `SPEC.md`).
 - 2026-05-04: Added source-backed external reference guidance, nested-scope rules, `SPEC.md`, and provenance.

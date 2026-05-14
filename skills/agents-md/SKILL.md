@@ -9,6 +9,13 @@ Goal: concise, actionable agent instructions. Target under 60 lines; never excee
 
 ## Workflow
 
+### Mandatory agent defaults
+
+Unless the user overrides (e.g. “skip caveman”, “normal mode”, “do not push”):
+
+- **Caveman-first:** Before substantive work each user turn/session, invoke/read the **caveman** skill (host discovery) or repo path `skills/caveman/SKILL.md` when maintained in-tree.
+- **Commit and push:** When this skill’s maintenance work is finished and edits exist: inspect `git status`, commit only meaningful changes with a clear imperative message and **Commit Attribution** (below); push to the current branch upstream if a remote exists, push is permitted, user did not forbid it, and there is unpushed work.
+
 1. Inspect before writing:
    - package manager: lock files and manifests
    - commands: `package.json`, `Makefile`, task runners, CI workflows
@@ -26,7 +33,7 @@ Goal: concise, actionable agent instructions. Target under 60 lines; never excee
    - nested `AGENTS.md`: only when a subtree has different commands or rules
    - closest instruction file wins; keep narrower files shorter than root files
 3. Write the smallest useful file.
-4. Verify exact paths and commands exist.
+4. Verify exact paths and commands exist; verify `## Agent runtime defaults` (if emitted) cites no bogus repo paths.
 
 ## File Setup
 
@@ -40,6 +47,10 @@ Use only sections that add non-obvious value.
 
 ````markdown
 # Agent Instructions
+
+## Agent runtime defaults
+- Caveman-first: invoke/read **caveman** skill each user turn/session unless user opts out (“normal mode”, “skip caveman”, “no caveman”).
+- Finish work: after task completion, stage and commit with required attribution; push upstream when safe, permitted, and user did not forbid.
 
 ## Package Manager
 - Use **pnpm**: `pnpm install`
@@ -78,7 +89,7 @@ Co-Authored-By: (the agent's name and attribution byline)
 - Keep one rule per bullet.
 - Keep rationale out unless it prevents a likely mistake.
 - Do not restate linter, formatter, or typechecker config.
-- Do not list installed skills or plugins.
+- Do not list installed skills or plugins except mandatory names in **`## Agent runtime defaults`** (caveman-first); avoid other skill inventories.
 - Do not include generic quality slogans.
 - When `## Agent skills` and `docs/agents/` already exist (e.g. after `setup-skills`), **preserve** that section and rely on those files for issue-tracker, triage-label, and domain detail instead of inlining them.
 

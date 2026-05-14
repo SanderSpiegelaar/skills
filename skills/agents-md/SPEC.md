@@ -13,14 +13,14 @@ In scope:
 - Root `AGENTS.md` files.
 - Nested `AGENTS.md` files for subtree-specific overrides.
 - `CLAUDE.md` compatibility symlinks when needed.
-- Concise command tables, external reference tables, and commit attribution rules.
+- Concise command tables, external reference tables, commit attribution rules, and optional **`## Agent runtime defaults`** (caveman-first, commit-and-push norms).
 - Removing duplicated prose from existing agent docs.
 
 Out of scope:
 
 - Rewriting the referenced docs themselves.
 - Replacing `README.md`, `CONTRIBUTING.md`, policy docs, or architecture docs.
-- Listing installed skills/plugins.
+- Skill/plugin inventories beyond **`## Agent runtime defaults`** mandated names (`caveman`).
 - Encoding linter or formatter rules already enforced by config.
 - Maintaining divergent tool-specific copies of the same instructions.
 
@@ -32,6 +32,9 @@ Out of scope:
 
 ## Runtime Contract
 
+- Invoke **caveman** (skill discovery or in-repo `skills/caveman/SKILL.md`) before substantive work each user turn/session when running this skill, unless user opts out of terse mode ("normal mode", "skip caveman", etc.).
+- After maintenance completes: inspect `git status`, commit substantive changes per repo attribution norms; push current branch upstream when a remote exists, user did not forbid push, permissions allow, and there is unpushed work.
+- Emit matching **`## Agent runtime defaults`** in root `AGENTS.md` templates unless maintainer trims for a downstream policy.
 - Inspect repo commands, configs, docs, specs, and policies before writing.
 - When inspection is insufficient to verify commands and paths (empty repo, scaffold, README-only tree, or pre-tooling request), elicit requirements before authoring; in Cursor, prefer **`AskQuestion`** for discrete choices, with short chat follow-up when multiple choice does not fit.
 - Do not fabricate commands or repo-relative paths; omit or mark pending what remains unknown after elicitation.
