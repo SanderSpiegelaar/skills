@@ -146,3 +146,7 @@ Granular `- [ ]` checklist for execution (ordering, wiring, code changes, tests)
 </ticket-file-template>
 
 Confirm in chat: directory written, file list with paths, and any **`TBD`** carried from source docs.
+
+## Related skills
+
+- **finish-feature** — after **all** tickets under **`docs/{feature-slug}/tickets/`** are implemented; verifies against the repo and writes **`docs/{feature-slug}/IMPLEMENTED.md`** ([finish-feature](../finish-feature/SKILL.md)).

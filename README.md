@@ -32,6 +32,7 @@ flowchart LR
 | [to-prd](skills/to-prd/) | `to-prd` | Production-grade PRDs from conversation or greenfield ideas (including AI features); publish to the issue tracker. |
 | [to-features](skills/to-features/) | `to-features` | Break a to-prd-shaped PRD into vertical slices (Slice 0…n) in TDD-friendly order. |
 | [to-feature-prd](skills/to-feature-prd/) | `to-feature-prd` | One slice → short sanity pass → `docs/{feature-slug}/PRD.md`. |
+| [finish-feature](skills/finish-feature/) | `finish-feature` | After slice tickets ship: verify against the repo; write **`docs/{feature-slug}/IMPLEMENTED.md`**. |
 | [to-issues](skills/to-issues/) | `to-issues` | Break a plan or PRD into independently grabbable tracker issues. |
 | [caveman](skills/caveman/) | `caveman` | Ultra-compressed replies to save tokens while keeping technical accuracy. |
 

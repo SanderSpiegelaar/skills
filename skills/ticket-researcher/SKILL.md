@@ -9,7 +9,7 @@ description: Reads implementation tickets, interviews the user for research dire
 
 1. Read the ticket file path the user provides
 2. Identify gaps: missing libraries, patterns, API choices, or code examples
-3. Ask user 2–4 targeted research questions
+3. If needed: Ask user 2–4 targeted research questions
 4. Run `exa_web_search_exa` and `context7` lookups in parallel
 5. Append a `## Technical research` section with findings, tables, and code snippets
 6. Update `Status:` to `ready-for-agent` when done

@@ -101,13 +101,14 @@ Rules:
 
 ## Handoff
 
-Use the **to-tickets** skill with **`PRD.md`** and this **`IMPLEMENTATION.md`** together. It writes numbered markdown tickets under **`docs/{feature-slug}/tickets/`** (default deliverable). Publishing to the issue tracker is **optional** and only when the user asks. Each ticket must be a **tracer-bullet vertical slice** (end-to-end, demoable or verifiable), not horizontal layer-only work.
+Use the **to-tickets** skill with **`PRD.md`** and this **`IMPLEMENTATION.md`** together. It writes numbered markdown tickets under **`docs/{feature-slug}/tickets/`** (default deliverable). Publishing to the issue tracker is **optional** and only when the user asks. Each ticket must be a **tracer-bullet vertical slice** (end-to-end, demoable or verifiable), not horizontal layer-only work. After tickets are merged, **[finish-feature](../finish-feature/SKILL.md)** can write **`docs/{feature-slug}/IMPLEMENTED.md`** (verified as-built handoff).
 ```
 
 ## Related skills
 
 - **to-feature-prd** — produces **`PRD.md`**
 - **to-tickets** — consumes **`PRD.md` + `IMPLEMENTATION.md`** (preferred); writes **`docs/{feature-slug}/tickets/*.md`** by default
+- **finish-feature** — after implementation; writes **`docs/{feature-slug}/IMPLEMENTED.md`**
 - **to-features** — slice list before `PRD.md`
 - **tdd** — RED→GREEN against a slice
 
