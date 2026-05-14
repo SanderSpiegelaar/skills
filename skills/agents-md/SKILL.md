@@ -7,6 +7,13 @@ description: Creates and maintains concise AGENTS.md and CLAUDE.md project instr
 
 Goal: concise, actionable agent instructions. Target under 60 lines; never exceed 100.
 
+## Quick start
+
+- **Input:** Repo root plus existing docs, manifests, and agent instruction files.
+- **Do:** Inspect commands, package manager, policies, and existing agent sections.
+- **Output:** Concise root `AGENTS.md` and optional `CLAUDE.md` symlink/copy policy.
+- **Next:** Run **grill** or the relevant workflow skill.
+
 ## Workflow
 
 ### Mandatory agent defaults

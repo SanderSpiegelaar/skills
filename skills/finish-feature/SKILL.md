@@ -9,6 +9,15 @@ Close the loop after **[to-tickets](../to-tickets/SKILL.md)**: produce a **verif
 
 **Execution shape:** reference-backed skill — templates and checklists live under **`references/`**; load them when drafting or verifying.
 
+## Quick start
+
+- **Input:** Completed `docs/{feature-slug}/tickets/*.md` plus repo state.
+- **Do:** Verify shipped behavior against PRD, implementation outline, and tickets.
+- **Output:** `docs/{feature-slug}/IMPLEMENTED.md`.
+- **Next:** Use it as the future-agent handoff.
+
+## References
+
 | Open when you need… | Read |
 |---------------------|------|
 | Full markdown skeleton for **`IMPLEMENTED.md`** | [`references/implemented-template.md`](references/implemented-template.md) |

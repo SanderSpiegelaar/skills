@@ -31,7 +31,7 @@ Out of scope:
 - **Fallback:** **`PRD.md` only** — allowed **only after explicit user confirmation** that coarser sequencing is acceptable (otherwise steer to **to-implementation-doc**)
 - **Required outputs:** One **`*.md`** file per approved implementation increment under **`docs/{feature-slug}/tickets/`**, ordered by implementation sequence; body **must** follow **`SKILL.md`** unified template (in order): **Summary** (type, blocked-by, conflicts/overlaps); **Documentation references** (PRD + IMPLEMENTATION paths, traceability, optional CONTEXT/ADR/AGENTS); **Implementation details** (approach, layers/boundaries, **engineering context** (libraries, patterns, testability, snippet discipline per **`SKILL.md`**), key risks/gotchas, verification); **Acceptance criteria** (definition of done); **Implementation todos** (granular checklists)
 - **Non-negotiable constraints:** Numeric prefixes reflect dependency order; filenames zero-padded for stable sort; vertical increments only; no tracker publish unless user asks
-- **Expected bundled files:** none required at runtime (`SKILL.md` self-contained)
+- **Expected bundled files:** `references/output-conventions.md`, `references/increment-ticketing-rules.md`, and `references/ticket-template.md`
 
 ## Downstream / Integrations
 
@@ -47,13 +47,14 @@ Authoritative sources:
 
 ## Reference Architecture
 
-- **`SKILL.md`:** activation, conventions table, process, ticket template
+- **`SKILL.md`:** activation, quick start, concise process, output contract, related skills
 - **`SPEC.md`:** this maintenance contract
+- **`references/`:** output conventions, increment rules, and ticket template
 
 ## Validation
 
 - **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-tickets`
-- **Acceptance gates:** Valid frontmatter; explicit **`docs/{feature-slug}/tickets/`** contract; unified ticket template sections documented in **`SKILL.md`** (**Implementation details** includes **engineering context** subsection per template); tracker publish documented as opt-in; IMPLEMENTATION+PRD happy path + PRD-only gated fallback
+- **Acceptance gates:** Valid frontmatter; explicit **`docs/{feature-slug}/tickets/`** contract; unified ticket template sections documented in references (**Implementation details** includes **engineering context** subsection per template); tracker publish documented as opt-in; IMPLEMENTATION+PRD happy path + PRD-only gated fallback; reference links resolve
 
 ## Known Limitations
 
@@ -62,5 +63,5 @@ Authoritative sources:
 
 ## Maintenance Notes
 
-- **Update `SKILL.md`** when **to-feature-prd** / **to-implementation-doc** paths or templates change
+- **Update `SKILL.md` and references** when **to-feature-prd** / **to-implementation-doc** paths or templates change
 - **Update `SPEC.md`** when output layout, ordering rules, or tracker policy changes

@@ -19,6 +19,13 @@ If a topic is not cleanly multiple-choice, use a short follow-up in chat or add 
 
 </what-to-do>
 
+## Quick start
+
+- **Input:** User's plan/design plus repo context.
+- **Do:** Research repo truth, ask structured decision questions, update `CONTEXT.md` / ADRs when decisions land.
+- **Output:** Clarified plan vocabulary and recorded domain/architecture decisions.
+- **Next:** Run **to-prd** when the plan is ready to formalize.
+
 <supporting-info>
 
 ## Domain awareness

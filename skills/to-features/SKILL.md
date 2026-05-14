@@ -9,6 +9,13 @@ Decompose a **to-prd-shaped** PRD into **vertical slices** in **strict implement
 
 Issue tracker wiring and triage labels should already exist before optional publication — run **setup-skills** if not.
 
+## Quick start
+
+- **Input:** `docs/{initiative-slug}/PRD.md`.
+- **Do:** Break the PRD into vertical slices in TDD order.
+- **Output:** Slice 0..n list with dependencies, PRD trace, TDD notes, and verification.
+- **Next:** Run **to-feature-prd** for one selected slice.
+
 ## When to use
 
 - After **to-prd** (or equivalent) when you have a PRD body to implement

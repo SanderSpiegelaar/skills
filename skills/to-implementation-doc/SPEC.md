@@ -30,7 +30,7 @@ Out of scope:
 - **Required inputs:** **`docs/{feature-slug}/PRD.md`** (path or body); same **`{feature-slug}`** for output directory
 - **Required outputs:** Markdown file **`IMPLEMENTATION.md`** using the template in **`SKILL.md`**, with **Proposed work breakdown (for ticketing)** populated as numbered vertical increments with PRD traceability
 - **Non-negotiable constraints:** No new scope beyond the PRD; increments must be **vertical** and **tracer-first** when the PRD implies a tracer bullet; do not paste the entire parent PRD
-- **Expected bundled files:** none required at runtime (`SKILL.md` self-contained)
+- **Expected bundled files:** `references/implementation-template.md` and `references/increment-rules.md`
 
 ## Downstream Consumer
 
@@ -47,13 +47,14 @@ Authoritative sources:
 
 ## Reference Architecture
 
-- **`SKILL.md`:** activation, input/output contract, process, output template
+- **`SKILL.md`:** activation, quick start, concise process, output contract, related skills
 - **`SPEC.md`:** this maintenance contract
+- **`references/`:** implementation template and vertical-increment rules
 
 ## Validation
 
 - **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-implementation-doc` (when runner exists in repo)
-- **Acceptance gates:** Valid frontmatter; explicit paths **`PRD.md`** / **`IMPLEMENTATION.md`**; template includes ticketing handoff and vertical-increment rules
+- **Acceptance gates:** Valid frontmatter; explicit paths **`PRD.md`** / **`IMPLEMENTATION.md`**; references include ticketing handoff and vertical-increment rules; reference links resolve
 
 ## Known Limitations
 
@@ -62,5 +63,5 @@ Authoritative sources:
 
 ## Maintenance Notes
 
-- **Update `SKILL.md`** when **to-feature-prd** PRD template or **to-tickets** input expectations change
+- **Update `SKILL.md` and references** when **to-feature-prd** PRD template or **to-tickets** input expectations change
 - **Update `SPEC.md`** when the IO contract or downstream handoff changes

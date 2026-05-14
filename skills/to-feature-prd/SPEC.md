@@ -30,7 +30,7 @@ Out of scope:
 - **Required first actions:** Obtain exactly one slice + **PRD source**; refuse to fabricate scope beyond **Delivers** / **PRD trace** / **Verify**
 - **Required outputs:** Markdown file at `docs/{feature-slug}/PRD.md` using the template in `SKILL.md`
 - **Non-negotiable constraints:** Ask User Question for the sanity pass when available; slug rules in `SKILL.md`; no tracker publish in this skill
-- **Expected bundled files loaded at runtime:** none required (link to **to-features** for input shape)
+- **Expected bundled files loaded at runtime:** `references/slice-prd-template.md` and `references/path-rules.md` when drafting or validating output
 
 ## Source And Evidence Model
 
@@ -47,15 +47,15 @@ Data that must not be stored in skill artifacts:
 
 ## Reference Architecture
 
-- **`SKILL.md`:** activation, process, slug rules, PRD template
+- **`SKILL.md`:** activation, quick start, concise process, output contract, related skills
 - **`SPEC.md`:** this maintenance contract
-- **`references/`:** not used initially
+- **`references/`:** slice PRD template and path/collision rules
 - **`scripts/`:** none
 
 ## Validation
 
 - **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-feature-prd`
-- **Acceptance gates:** Valid frontmatter; `name` matches folder `to-feature-prd`; input/output contracts stated in `SKILL.md`; PRD output path and filename documented
+- **Acceptance gates:** Valid frontmatter; `name` matches folder `to-feature-prd`; input/output contracts stated in `SKILL.md`; PRD output path and filename documented; reference links resolve
 
 ## Known Limitations
 
@@ -64,5 +64,5 @@ Data that must not be stored in skill artifacts:
 
 ## Maintenance Notes
 
-- **Update `SKILL.md`** when **to-features** slice fields or **to-prd** cross-links change materially
+- **Update `SKILL.md` and references** when **to-features** slice fields or **to-prd** cross-links change materially
 - **Update `SPEC.md`** when outputs, paths, or validation gates change

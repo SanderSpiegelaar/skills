@@ -2,6 +2,8 @@
 
 ## 2026-05-14
 
+- Split long core `SKILL.md` files into concise reference-backed entrypoints for `setup-skills`, `to-prd`, `to-feature-prd`, `to-implementation-doc`, `to-tickets`, `tdd`, and `skill-writer`.
+- Moved bulky templates, path rules, ticketing rules, TDD guidance, and setup seed docs into `references/` while preserving workflow behavior.
 - Standardized the core workflow artifact hierarchy: parent PRDs at `docs/{initiative-slug}/PRD.md`, slice PRDs at `docs/{feature-slug}/PRD.md`, implementation outlines at `docs/{feature-slug}/IMPLEMENTATION.md`, tickets under `docs/{feature-slug}/tickets/`, and as-built handoffs at `docs/{feature-slug}/IMPLEMENTED.md`.
 - Kept `to-implementation-doc` as the canonical skill name and updated stale `to-implementation` references in core workflow docs/specs.
 - Replaced stale `to-issues` references in `setup-skills` with the current `to-tickets` workflow.
