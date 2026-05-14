@@ -3,6 +3,8 @@ name: to-implementation-doc
 description: After to-feature-prd, produce a high-level IMPLEMENTATION.md next to docs/{feature-slug}/PRD.md for ticket breakdown with to-tickets. Use when the user wants an implementation bridge doc, slice-scoped technical sequencing, or handoff from slice PRD to issues.
 ---
 
+# To Implementation Doc
+
 Turn a **slice-scoped PRD** from **[to-feature-prd](../to-feature-prd/SKILL.md)** into a **high-level, ticket-oriented** implementation document. The output seeds **[to-tickets](../to-tickets/SKILL.md)** with vertical increments, dependencies, and traceability—**not** a full low-level design spec.
 
 **Note:** Do **not** write production code unless **pseudocode** is needed to lock a decision.

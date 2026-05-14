@@ -3,6 +3,8 @@ name: to-feature-prd
 description: Turn one vertical slice from to-features into a slice-scoped PRD file after a short Ask User Question sanity pass; writes docs/{feature-slug}/PRD.md in the target project. Use when the user wants a per-slice PRD, feature-folder docs from a slice, or to formalize Slice k before implementation.
 ---
 
+# To Feature PRD
+
 Produce a **thin, slice-scoped PRD** from **exactly one** block in a **to-features** breakdown, sanity-check assumptions with the user, then persist it under **`docs/{feature-slug}/PRD.md`** at the **workspace project root**.
 
 For full-product PRDs and issue-tracker publication, use **to-prd**. For breaking a PRD into slices, use **to-features**.

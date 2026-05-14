@@ -3,6 +3,8 @@ name: to-features
 description: Break a PRD produced by to-prd into vertical feature slices numbered Slice 0..n in TDD-friendly implementation order (tracer bullet first, RED→GREEN increments). Use when the user wants a PRD decomposed into implementable slices, vertical slices from requirements, or an ordered breakdown before coding or ticketing.
 ---
 
+# To Features
+
 Decompose a **to-prd-shaped** PRD into **vertical slices** in **strict implementation order** for smooth **TDD** (tracer bullets, not horizontal layers). For publishing slices to the issue tracker, hand the approved list to **to-tickets**.
 
 Issue tracker wiring and triage labels should already exist — run **setup-skills** if not.
