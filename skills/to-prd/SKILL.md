@@ -1,7 +1,6 @@
 ---
 name: to-prd
 description: Turn conversation context or a greenfield idea into a production-grade PRD (executive summary, user stories with acceptance criteria, technical specs, AI requirements when applicable, risks) and publish it to the project issue tracker. Use when the user wants a PRD from context, wants to document requirements, plan a feature, or scope AI-powered work.
-license: MIT
 ---
 
 Design comprehensive PRDs that bridge business intent and technical execution—for modern software and AI-powered features. The issue tracker and triage label vocabulary should have been provided; run `/setup-skills` if not.
