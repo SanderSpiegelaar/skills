@@ -17,6 +17,8 @@ Optional **deepening pass** after a ticket exists (for example files from [**to-
 
 Use whatever tool names your MCP or IDE exposes; if a tool is unavailable, skip it and note the gap briefly.
 
+6. If the repo uses **`Status:`** metadata, update to **`ready-for-agent`** when the ticket clearly supports clean, **testable** work without locking in pasted implementation.
+
 ## Workflow
 
 ### 1. Read ticket
