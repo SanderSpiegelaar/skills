@@ -1,5 +1,5 @@
 ---
-name: to-implementation
+name: to-implementation-doc
 description: After to-feature-prd, produce a high-level IMPLEMENTATION.md next to docs/{feature-slug}/PRD.md for ticket breakdown with to-tickets. Use when the user wants an implementation bridge doc, slice-scoped technical sequencing, or handoff from slice PRD to issues.
 ---
 
