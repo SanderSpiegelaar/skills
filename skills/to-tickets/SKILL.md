@@ -1,6 +1,6 @@
 ---
 name: to-tickets
-description: Break work into tracer-bullet vertical-slice implementation tickets as numbered markdown files under docs/{feature-slug}/tickets/, using a unified template (documentation references, implementation details, acceptance criteria, implementation todos). Inputs docs/{feature-slug}/PRD.md (to-feature-prd) and docs/{feature-slug}/IMPLEMENTATION.md (to-implementation). Issue-tracker publish only when the user explicitly asks.
+description: Break work into tracer-bullet vertical-slice implementation tickets as numbered markdown files under docs/{feature-slug}/tickets/, using a unified template (documentation references, implementation details including engineering context for AFK agents, acceptance criteria, implementation todos). Inputs docs/{feature-slug}/PRD.md (to-feature-prd) and docs/{feature-slug}/IMPLEMENTATION.md (to-implementation). Issue-tracker publish only when the user explicitly asks.
 ---
 
 # To tickets
@@ -87,7 +87,8 @@ Do **not** close or modify a parent tracker issue unless the user asks.
 **Author notes for filling the template:**
 
 - Populate **Documentation references** from **`IMPLEMENTATION.md`** and **`PRD.md`** first; add **`CONTEXT.md`**, **`docs/adr/…`**, **`AGENTS.md`** only when exploration surfaced durable anchors (repo-relative paths).
-- Use **Implementation details** for stable boundaries (packages, modules, test areas); avoid brittle line-level paths unless they encode a real constraint.
+- Use **Implementation details** for stable boundaries (packages, modules, test areas); avoid brittle line-level paths unless they encode a real constraint. **Do not** turn tickets into tutorials: no long copy-paste solutions, exhaustive walkthroughs, or pages of production code — prefer citations, patterns, and short API references so the executing agent can adapt to this repo.
+- Fill **Engineering context** when the slice needs library/stack guidance, idioms, or test seams; omit or write **`TBD`** if **`IMPLEMENTATION.md`** already suffices. Prefer official doc or release-note links over pasted blocks.
 - **Acceptance criteria** are the observable definition of done—align with PRD acceptance criteria. **Implementation todos** are granular `- [ ]` execution steps; do not paste AC verbatim unless it helps as a milestone checkpoint.
 - Order **Implementation todos** roughly by dependency within the slice (mirror **TDD** posture when the PRD or repo conventions expect tests alongside behavior).
 - After the quiz is approved, tailor todos to this repo’s layout so an AFK agent can execute without rereading the entire PRD.
@@ -119,6 +120,15 @@ How this tracer-bullet slice is executed end-to-end (integration story). Prefer 
 
 Echo **Layers touched** / increments from **`IMPLEMENTATION.md`** where applicable (schema, API, UI, tests, jobs, etc.). Stable repo-relative anchors are welcome (e.g. package or module roots).
 
+### Engineering context (libraries, patterns, testability)
+
+Aim **senior-level** handoff: clean, **testable**, **maintainable** implementation — **not** a scripted code dump.
+
+- **Libraries / stack:** Candidate libraries or built-ins worth using; versioning or pinning stance (or “defer to repo lockfile / existing patterns”). Link official docs or release notes; avoid long pasted excerpts.
+- **Patterns & conventions:** Idioms that fit **this repo** — layering, dependency direction, naming, error handling, async/IO posture. Short **algorithmic pseudocode** only where control flow is non-obvious; the executing agent adapts naming and module layout.
+- **Testability:** Where to introduce **test seams** (inject clocks, HTTP, RNG, filesystem); which existing suites or test styles to extend; properties or scenarios that tie **Acceptance criteria** — not pasted “implement exactly this test body” blobs.
+- **Snippet policy:** Default to **links + rationale**. Use **minimal** signature- or shape-level snippets **only** when the public API surface is ambiguous; label snippets as illustrative.
+
 ### Key risks / gotchas
 
 HITL gates, migrations, backwards compatibility, feature flags — use **`TBD`** if unknown.
@@ -127,7 +137,7 @@ HITL gates, migrations, backwards compatibility, feature flags — use **`TBD`**
 
 How to prove this slice locally (commands, manual scenario, test suites to exercise).
 
-Optional: decision-rich **pseudocode**, types, or a trimmed snippet from a prototype—only when prose is weaker; label the source and strip noise.
+Optional extras here (not duplicate of **Engineering context**): trimmed **prototype** excerpt or decision-rich pseudocode — only when prose or API shape stays unclear; cite source and strip noise.
 
 ## Acceptance criteria
 
@@ -149,4 +159,5 @@ Confirm in chat: directory written, file list with paths, and any **`TBD`** carr
 
 ## Related skills
 
+- **ticket-researcher** — **optional:** deepen a thin ticket after files exist (Libraries / patterns / gotchas / verification) via web search and official-docs lookup when MCP tools are available; **not** chained by default ([ticket-researcher](../ticket-researcher/SKILL.md)). Run when, for example: the slice is still thin after authoring; stack or library landscape is unfamiliar; integration is risky; or guidance must be refreshed from upstream docs — **never** mandatory for every breakdown.
 - **finish-feature** — after **all** tickets under **`docs/{feature-slug}/tickets/`** are implemented; verifies against the repo and writes **`docs/{feature-slug}/IMPLEMENTED.md`** ([finish-feature](../finish-feature/SKILL.md)).

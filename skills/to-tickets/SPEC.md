@@ -2,7 +2,7 @@
 
 ## Intent
 
-**to-tickets** turns **`docs/{feature-slug}/PRD.md`** ([to-feature-prd](../to-feature-prd/SKILL.md)) plus **`docs/{feature-slug}/IMPLEMENTATION.md`** ([to-implementation](../to-implementation/SKILL.md)) into **numbered markdown implementation tickets** under **`docs/{feature-slug}/tickets/`**, each representing a **tracer-bullet vertical slice** and following a **unified ticket template**: **Summary**, **Documentation references**, **Implementation details**, **Acceptance criteria**, and **Implementation todos**. Files are the **canonical default deliverable**; issue-tracker publication is **optional** and only when the user explicitly requests it.
+**to-tickets** turns **`docs/{feature-slug}/PRD.md`** ([to-feature-prd](../to-feature-prd/SKILL.md)) plus **`docs/{feature-slug}/IMPLEMENTATION.md`** ([to-implementation](../to-implementation/SKILL.md)) into **numbered markdown implementation tickets** under **`docs/{feature-slug}/tickets/`**, each representing a **tracer-bullet vertical slice** and following a **unified ticket template**: **Summary**, **Documentation references**, **Implementation details** (including **Engineering context (libraries, patterns, testability)** alongside approach, layers/boundaries, risks, verification), **Acceptance criteria**, and **Implementation todos**. Files are the **canonical default deliverable**; issue-tracker publication is **optional** and only when the user explicitly requests it.
 
 ## Scope
 
@@ -29,7 +29,7 @@ Out of scope:
 
 - **Preferred inputs:** **`docs/{feature-slug}/PRD.md`** and **`docs/{feature-slug}/IMPLEMENTATION.md`** (paths or bodies)
 - **Fallback:** **`PRD.md` only** — allowed **only after explicit user confirmation** that coarser sequencing is acceptable (otherwise steer to **to-implementation**)
-- **Required outputs:** One **`*.md`** file per approved slice under **`docs/{feature-slug}/tickets/`**, ordered by implementation sequence; body **must** follow **`SKILL.md`** unified template (in order): **Summary** (type, blocked-by); **Documentation references** (PRD + IMPLEMENTATION paths, traceability, optional CONTEXT/ADR/AGENTS); **Implementation details** (approach, layers/boundaries, risks, verification); **Acceptance criteria** (definition of done); **Implementation todos** (granular checklists)
+- **Required outputs:** One **`*.md`** file per approved slice under **`docs/{feature-slug}/tickets/`**, ordered by implementation sequence; body **must** follow **`SKILL.md`** unified template (in order): **Summary** (type, blocked-by); **Documentation references** (PRD + IMPLEMENTATION paths, traceability, optional CONTEXT/ADR/AGENTS); **Implementation details** (approach, layers/boundaries, **engineering context** (libraries, patterns, testability, snippet discipline per **`SKILL.md`**), key risks/gotchas, verification); **Acceptance criteria** (definition of done); **Implementation todos** (granular checklists)
 - **Non-negotiable constraints:** Numeric prefixes reflect dependency order; filenames zero-padded for stable sort; vertical slices only; no tracker publish unless user asks
 - **Expected bundled files:** none required at runtime (`SKILL.md` self-contained)
 
@@ -53,7 +53,7 @@ Authoritative sources:
 ## Validation
 
 - **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-tickets`
-- **Acceptance gates:** Valid frontmatter; explicit **`docs/{feature-slug}/tickets/`** contract; unified ticket template sections documented in **`SKILL.md`**; tracker publish documented as opt-in; IMPLEMENTATION+PRD happy path + PRD-only gated fallback
+- **Acceptance gates:** Valid frontmatter; explicit **`docs/{feature-slug}/tickets/`** contract; unified ticket template sections documented in **`SKILL.md`** (**Implementation details** includes **engineering context** subsection per template); tracker publish documented as opt-in; IMPLEMENTATION+PRD happy path + PRD-only gated fallback
 
 ## Known Limitations
 
