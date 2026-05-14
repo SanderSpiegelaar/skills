@@ -54,6 +54,12 @@ uv run skills/skill-writer/scripts/quick_validate.py skills/<skill-folder>
 
 Replace `<skill-folder>` with the directory name (e.g. `tdd`).
 
+## Skill system references
+
+- [Workflow contract](docs/skill-system/workflow.md) — canonical artifact hierarchy, handoff order, naming rules, and anti-drift rules.
+- [Intelligent search golden example](docs/skill-system/examples/intelligent-search/README.md) — complete parent PRD -> slices -> slice PRD -> implementation -> tickets -> implemented handoff chain.
+- Validation command: `uv run skills/skill-writer/scripts/quick_validate.py skills/<skill-folder>`.
+
 ## Recommended execution order (greenfield pipeline)
 
 Use this sequence when turning an idea into scoped docs, tickets, and shipped slices. Skill names match YAML `name` in each folder’s `SKILL.md`.

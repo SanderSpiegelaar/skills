@@ -36,9 +36,11 @@ Tickets map to implementation increments from `IMPLEMENTATION.md`. Use feature-s
 
 ## References
 
+- [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md) — canonical artifact hierarchy and handoff chain.
 - [`references/output-conventions.md`](references/output-conventions.md) — directory, naming, ordering, and publication rules.
 - [`references/increment-ticketing-rules.md`](references/increment-ticketing-rules.md) — vertical increment, conflict, and authoring guidance.
 - [`references/ticket-template.md`](references/ticket-template.md) — required ticket file body.
+- [`../../docs/skill-system/examples/intelligent-search/tickets/01-fixture-retrieval-answer.md`](../../docs/skill-system/examples/intelligent-search/tickets/01-fixture-retrieval-answer.md) — golden ticket example.
 
 ## Related skills
 

@@ -34,6 +34,7 @@ disable-model-invocation: true
 
 ## References
 
+- [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md) — canonical artifact hierarchy and handoff chain for the core workflow.
 - [`references/agent-skills-block.md`](references/agent-skills-block.md) — `AGENTS.md` / `CLAUDE.md` block.
 - [`references/issue-tracker-github.md`](references/issue-tracker-github.md) — GitHub issue-tracker seed.
 - [`references/issue-tracker-local.md`](references/issue-tracker-local.md) — local markdown issue-tracker seed.

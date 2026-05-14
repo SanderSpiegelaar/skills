@@ -10,6 +10,9 @@ Every ticket under `docs/{feature-slug}/tickets/` must follow this structure.
 - **Type:** HITL | AFK
 - **Blocked by:** `NN-other-slug.md` (peer ticket in this directory) or **None — can start immediately**
 - **Conflicts / overlaps:** [peer ticket, migration, API, or file area] or **None known**
+- **Expected changed areas:** [repo-relative module roots, test areas, docs] or **TBD**
+- **Do not change:** [boundaries, modules, migrations, APIs] or **None known**
+- **Shared verification:** [test/scenario shared with peer tickets] or **None**
 
 ## Documentation references
 
@@ -44,6 +47,8 @@ HITL gates, migrations, backwards compatibility, feature flags — use TBD if un
 ### Verification
 
 How to prove this increment locally: commands, manual scenario, test suites to exercise.
+
+If verification is shared with another ticket, name the shared scenario and explain what this ticket uniquely proves.
 
 ## Acceptance criteria
 

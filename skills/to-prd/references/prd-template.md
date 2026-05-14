@@ -3,6 +3,16 @@
 Use this structure for `docs/{initiative-slug}/PRD.md`.
 
 ```markdown
+# [Initiative title]
+
+| Field | Value |
+|-------|-------|
+| **Status** | Draft / Approved / Superseded |
+| **Owner** | [person/team or TBD] |
+| **Last updated** | [YYYY-MM-DD] |
+| **Source** | [conversation / issue / doc / link] |
+| **Initiative slug** | `docs/{initiative-slug}/PRD.md` |
+
 ### 1. Executive summary
 
 - **Problem statement**: 1–2 sentences on the pain point.
@@ -14,14 +24,17 @@ Use this structure for `docs/{initiative-slug}/PRD.md`.
 - **User personas**: Who is this for?
 - **User stories**: `As a [user], I want to [action] so that [benefit].` Provide a numbered list that covers the feature thoroughly.
 - **Acceptance criteria**: Bulleted "done" definitions per story, or grouped by story.
-- **Non-goals**: What we are not building.
 
-### 3. AI system requirements (if applicable)
+### 3. Non-goals
+
+What we are not building. Include adjacent ideas that are easy to confuse with this initiative.
+
+### 4. AI system requirements (if applicable)
 
 - **Tool requirements**: Tools and APIs the system needs.
 - **Evaluation strategy**: How to measure output quality and accuracy.
 
-### 4. Technical specifications
+### 5. Technical specifications
 
 - **Architecture overview**: Data flow and component interaction.
 - **Integration points**: APIs, databases, auth.
@@ -36,19 +49,23 @@ Capture decisions here. Avoid file paths or generic code snippets that go stale:
 
 **Exception:** If a prototype encodes a decision more precisely than prose, inline only the decision-rich fragment and note it came from a prototype.
 
-### 5. Testing and validation
+### 6. Testing and validation
 
 - What makes a good test here: external behavior, not implementation details.
 - Which modules are in scope for automated tests.
 - Prior art: similar tests elsewhere in the codebase.
 - For AI: tie to evaluation strategy in section 3.
 
-### 6. Risks and roadmap
+### 7. Risks and roadmap
 
 - **Phased rollout**: e.g. MVP -> v1.1 -> v2.0.
 - **Technical risks**: Latency, cost, dependency or vendor failure.
 
-### 7. Further notes
+### 8. Open questions
+
+- **TBD:** [question, owner if known, and why it matters]
+
+### 9. Further notes
 
 Any additional context that does not fit above.
 ```

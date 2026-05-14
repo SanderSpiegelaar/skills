@@ -7,7 +7,14 @@ Use this structure for `docs/{feature-slug}/PRD.md`.
 
 ## PRD source
 
-[Link or pointer to parent PRD]
+- **Parent PRD:** `docs/{initiative-slug}/PRD.md`
+- **Slice list:** [link or pointer to to-features output]
+
+## Parent traceability
+
+- **Parent user stories covered:** [story numbers / titles]
+- **Parent acceptance criteria covered:** [AC refs]
+- **Not covered by this slice:** [explicit exclusions and deferred slices]
 
 ## Slice identity
 
@@ -30,7 +37,7 @@ Use this structure for `docs/{feature-slug}/PRD.md`.
 
 ### Out of scope
 
-- [deferrals to other slices or parent PRD]
+- [deferrals to other slices or parent PRD; do not repeat “Not covered” unless useful]
 
 ## Dependencies
 

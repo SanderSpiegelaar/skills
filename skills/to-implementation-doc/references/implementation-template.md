@@ -34,6 +34,14 @@ Numbered vertical increments:
 
 [Alternatively use a bullet list with the same fields per increment if tables are awkward.]
 
+Preferred table for ticket handoff:
+
+| # | Title | User-visible outcome | Layers touched | Depends on | Maps to PRD | Verification | Ticket candidate | Risk / HITL |
+|---|-------|----------------------|----------------|------------|-------------|--------------|------------------|-------------|
+| 0 | … | … | … | None / #n | AC: … | test / scenario | `01-….md` | Low / AFK |
+
+Do not add new increments during `to-tickets` unless the user confirms a split or merge.
+
 ## Integration and touchpoints
 
 [Concise list: systems, boundaries, auth, data ownership, external APIs.]

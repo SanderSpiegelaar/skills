@@ -35,8 +35,10 @@ Do not write production code. Use brief pseudocode only when it locks a decision
 
 ## References
 
+- [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md) — canonical artifact hierarchy and handoff chain.
 - [`references/implementation-template.md`](references/implementation-template.md) — canonical implementation outline.
 - [`references/increment-rules.md`](references/increment-rules.md) — vertical-increment and handoff rules.
+- [`../../docs/skill-system/examples/intelligent-search/implementation.md`](../../docs/skill-system/examples/intelligent-search/implementation.md) — golden implementation outline example.
 
 ## Related skills
 

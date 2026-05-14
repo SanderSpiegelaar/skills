@@ -16,6 +16,13 @@ Copy this skeleton into **`docs/{feature-slug}/IMPLEMENTED.md`** (or team overri
 | **Tickets dir** | `docs/{feature-slug}/tickets/` |
 | **This doc generated** | [ISO date or **`TBD`**] |
 
+## Future agent quickstart
+
+- **Read first:** [PRD / IMPLEMENTATION / ticket files most relevant to future work]
+- **Run first:** [narrow verification command or manual scenario, or **`TBD`**]
+- **Safe assumptions:** [what this handoff verified]
+- **Known gaps:** [short list or **None known**]
+
 ## As-built summary
 
 [One short paragraph: what the system **does now** — behavior and boundaries, **not** original product intent unless it matches reality.]
@@ -87,4 +94,5 @@ Link CI job or workflow path if known and stable.
 | **Canonical map** | Stops codebase-wide fuzzy search |
 | **Runtime and configuration** | Prevents silent wrong-env assumptions |
 | **Verification** | Ground truth for “does it work” |
+| **Future agent quickstart** | Fast restart path for the next agent |
 | **Non-goals and do-not-assume** | Stops speculative “fixes” and scope creep |
