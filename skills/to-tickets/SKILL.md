@@ -1,6 +1,6 @@
 ---
 name: to-tickets
-description: Break work into tracer-bullet vertical-slice implementation tickets as numbered markdown files under docs/{feature-slug}/tickets/, using docs/{feature-slug}/PRD.md (to-feature-prd) and docs/{feature-slug}/IMPLEMENTATION.md (to-implementation). Use when the user wants implementation tickets on disk, a slice ticket breakdown, or handoff from IMPLEMENTATION.md to executable work items. Issue-tracker publish only when the user explicitly asks.
+description: Break work into tracer-bullet vertical-slice implementation tickets as numbered markdown files under docs/{feature-slug}/tickets/, using a unified template (documentation references, implementation details, acceptance criteria, implementation todos). Inputs docs/{feature-slug}/PRD.md (to-feature-prd) and docs/{feature-slug}/IMPLEMENTATION.md (to-implementation). Issue-tracker publish only when the user explicitly asks.
 ---
 
 # To tickets
@@ -74,7 +74,7 @@ Iterate until the user approves the breakdown.
 
 For **each approved slice**, write one file under **`docs/{feature-slug}/tickets/`** using the numeric prefix and naming rules above. Assign **sequential order** consistent with dependencies (blockers get smaller numbers).
 
-Use the ticket body template below. Each file should stand alone for an AFK agent without requiring the issue tracker.
+Every ticket **MUST** use the unified **`<ticket-file-template>`** below—same headings and section purposes—so files stay consistent for humans and AFK agents. Each file should stand alone without requiring the issue tracker.
 
 ### 6. Publish to the issue tracker (optional)
 
@@ -84,34 +84,64 @@ For each slice, create an issue using the same substance as the markdown ticket 
 
 Do **not** close or modify a parent tracker issue unless the user asks.
 
+**Author notes for filling the template:**
+
+- Populate **Documentation references** from **`IMPLEMENTATION.md`** and **`PRD.md`** first; add **`CONTEXT.md`**, **`docs/adr/…`**, **`AGENTS.md`** only when exploration surfaced durable anchors (repo-relative paths).
+- Use **Implementation details** for stable boundaries (packages, modules, test areas); avoid brittle line-level paths unless they encode a real constraint.
+- **Acceptance criteria** are the observable definition of done—align with PRD acceptance criteria. **Implementation todos** are granular `- [ ]` execution steps; do not paste AC verbatim unless it helps as a milestone checkpoint.
+- Order **Implementation todos** roughly by dependency within the slice (mirror **TDD** posture when the PRD or repo conventions expect tests alongside behavior).
+- After the quiz is approved, tailor todos to this repo’s layout so an AFK agent can execute without rereading the entire PRD.
+
 <ticket-file-template>
 # [Ticket title — same as slice title]
 
-## Context
+## Summary
 
-- **Feature docs:** `docs/{feature-slug}/PRD.md`, `docs/{feature-slug}/IMPLEMENTATION.md`
 - **Type:** HITL | AFK
+- **Blocked by:** **`NN-other-slug.md`** (peer ticket in this directory) or **None — can start immediately**
 
-## Traceability
+## Documentation references
 
-- **IMPLEMENTATION.md increment:** #… (row index from **Proposed work breakdown**, if applicable)
-- **PRD:** requirement / AC references this slice satisfies (e.g. AC bullets, requirement IDs)
+- **Slice PRD:** `docs/{feature-slug}/PRD.md`
+- **Implementation outline:** `docs/{feature-slug}/IMPLEMENTATION.md`
+- **Traceability:**
+  - **IMPLEMENTATION.md increment:** #… (row index from **Proposed work breakdown**, if applicable)
+  - **PRD:** requirement / acceptance-criteria references this slice satisfies (e.g. AC bullets, requirement IDs)
+- **Project docs (optional):** e.g. `CONTEXT.md`, `docs/adr/NNN-title.md`, `AGENTS.md` — include only when relevant
 
-## What to build
+## Implementation details
 
-A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation.
+### Approach
 
-Avoid specific file paths or code snippets — they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it here and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
+How this tracer-bullet slice is executed end-to-end (integration story). Prefer behavior and boundaries over a layer-by-layer rewrite of the PRD.
+
+### Layers and boundaries
+
+Echo **Layers touched** / increments from **`IMPLEMENTATION.md`** where applicable (schema, API, UI, tests, jobs, etc.). Stable repo-relative anchors are welcome (e.g. package or module roots).
+
+### Key risks / gotchas
+
+HITL gates, migrations, backwards compatibility, feature flags — use **`TBD`** if unknown.
+
+### Verification
+
+How to prove this slice locally (commands, manual scenario, test suites to exercise).
+
+Optional: decision-rich **pseudocode**, types, or a trimmed snippet from a prototype—only when prose is weaker; label the source and strip noise.
 
 ## Acceptance criteria
 
-- [ ] Criterion 1
-- [ ] Criterion 2
-- [ ] Criterion 3
+Definition of done—observable outcomes aligned with PRD acceptance criteria.
 
-## Blocked by
+- [ ] …
+- [ ] …
 
-- **`NN-other-slug.md`** (this repo’s ticket file) or **None — can start immediately**
+## Implementation todos
+
+Granular `- [ ]` checklist for execution (ordering, wiring, code changes, tests). Need not duplicate acceptance criteria verbatim.
+
+- [ ] …
+- [ ] …
 
 </ticket-file-template>
 
