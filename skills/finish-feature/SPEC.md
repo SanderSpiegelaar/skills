@@ -38,7 +38,7 @@ Out of scope:
 
 ## Pipeline Position
 
-Upstream: **to-tickets** (and typically **to-implementation**, **to-feature-prd**)  
+Upstream: **to-tickets** (and typically **to-implementation-doc**, **to-feature-prd**)  
 Uses: target project repository state after implementation
 
 ## Validation

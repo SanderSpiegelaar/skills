@@ -1,17 +1,17 @@
 ---
 name: to-prd
-description: Turn conversation context or a greenfield idea into a production-grade PRD (executive summary, user stories with acceptance criteria, technical specs, AI requirements when applicable, risks) and publish it to the project issue tracker. Use when the user wants a PRD from context, wants to document requirements, plan a feature, or scope AI-powered work.
+description: Turn conversation context or a greenfield idea into a production-grade parent PRD at docs/{initiative-slug}/PRD.md (executive summary, user stories with acceptance criteria, technical specs, AI requirements when applicable, risks). Use when the user wants a PRD from context, wants to document requirements, plan a feature, or scope AI-powered work; issue-tracker publication is optional when explicitly requested.
 ---
 
 # To PRD
 
-Design comprehensive PRDs that bridge business intent and technical execution—for modern software and AI-powered features. The issue tracker and triage label vocabulary should have been provided; run `/setup-skills` if not.
+Design comprehensive PRDs that bridge business intent and technical execution—for modern software and AI-powered features. Durable parent PRDs default to **`docs/{initiative-slug}/PRD.md`**. The issue tracker and triage label vocabulary should have been provided for optional publication; run `/setup-skills` if not.
 
 ## When to use
 
 - Starting a new product or feature cycle, or translating a vague idea into a concrete specification
 - Defining requirements for AI-powered features
-- Turning **current conversation context** into a tracker-backed PRD stakeholders can treat as scope
+- Turning **current conversation context** into a docs-backed PRD stakeholders can treat as scope
 - Stakeholders need a single source of truth for scope
 - User asks to write a PRD, document requirements, or plan a feature
 
@@ -43,6 +43,8 @@ Before drafting, decide how much discovery you need:
 - **Thin context** (vague idea, new thread, or explicit greenfield PRD): run **Phase 1–2** below in full. Ask about the core problem, success metrics, and constraints; map user flow and non-goals. Do not assume unstated context.
 - **Rich context** (ongoing technical conversation and repo understanding): **do not** force a full interview. Ask **0–3 targeted questions** only where a section would otherwise be guessed or must stay `TBD` (e.g. KPIs, deadlines, AI evaluation, compliance).
 
+If `CONTEXT.md` or `CONTEXT-MAP.md` exists, read the relevant domain context before naming concepts, user stories, or technical boundaries. If the PRD introduces or sharpens durable domain vocabulary, update `CONTEXT.md` when the user has authorized documentation edits; otherwise flag the suggested glossary update explicitly.
+
 ### Phase 1: Discovery (the interview, when needed)
 
 Use **Ask User Question** for each discovery round (you can batch related topics into one form when the tool allows multiple questions).
@@ -67,9 +69,11 @@ Use **Ask User Question** for each discovery round (you can batch related topics
 
 3. Check with the user that the module breakdown matches their expectations. Confirm which modules should have tests—use **Ask User Question** for these confirmations.
 
-4. Write the PRD using the template below. Iterate: share a draft and invite feedback on specific sections when helpful.
+4. Resolve `{initiative-slug}` (lowercase kebab-case, ASCII, derived from the initiative title unless the user provides one) and write the PRD to **`docs/{initiative-slug}/PRD.md`** using the template below. Iterate: share a draft and invite feedback on specific sections when helpful.
 
-5. Publish to the project issue tracker. Apply the **`ready-for-agent`** triage label—no additional triage pass required.
+5. Publish to the project issue tracker only when the user explicitly asks. Apply the **`ready-for-agent`** triage label when publishing—no additional triage pass required.
+
+6. Confirm in chat: path written, any remaining **`TBD`** items, and **[to-features](../to-features/SKILL.md)** as the recommended next skill.
 
 ## Implementation guidelines
 

@@ -36,10 +36,10 @@ Out of scope:
 
 Authoritative sources:
 
-- Parent PRD (issue, paste, or conversation)
+- Parent PRD (prefer `docs/{initiative-slug}/PRD.md`; otherwise issue, paste, or conversation)
 - `skills/to-prd/SKILL.md` (template shape)
 - `skills/tdd/SKILL.md` (vertical vs horizontal slicing)
-- `skills/to-tickets/SKILL.md` (optional downstream: issues)
+- `skills/to-feature-prd/SKILL.md` / `skills/to-implementation-doc/SKILL.md` / `skills/to-tickets/SKILL.md` (durable downstream route)
 
 Data that must not be stored in skill artifacts:
 

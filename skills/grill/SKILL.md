@@ -11,7 +11,7 @@ Interview me relentlessly about every aspect of this plan until we reach a share
 
 If a decision can be settled by exploring the codebase or docs alone, do that **instead of** asking.
 
-**In Cursor:** use the **`AskQuestion`** tool for discrete choices. On other hosts without that tool, ask the same batched multiple-choice questions in chat, with **` (Recommended)`** on one option per question. Include **3–4 questions** per call whenever that many independent decisions are ready (use fewer only when that is all that remains on the current branch).
+Use the host's **Ask User Question** / structured question tool for discrete choices when available. In Cursor, this may be exposed as **`AskQuestion`**. On hosts without that tool, ask the same batched multiple-choice questions in chat, with **` (Recommended)`** on one option per question. Include **3–4 questions** per call whenever that many independent decisions are ready (use fewer only when that is all that remains on the current branch).
 
 For **every** `AskQuestion` item that has options, append **` (Recommended)`** to the **label** of exactly **one** option.
 
@@ -96,5 +96,9 @@ Only offer to create an ADR when all three are true:
 3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
 
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+
+### Handoff to PRD
+
+When the plan survives grilling and the user wants to implement it, recommend **[to-prd](../to-prd/SKILL.md)** as the next step. If the session only resolved vocabulary or a durable decision, finish by updating `CONTEXT.md` / ADRs instead of inventing a PRD.
 
 </supporting-info>

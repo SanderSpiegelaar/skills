@@ -11,7 +11,7 @@
 | Source | Used for |
 |--------|----------|
 | **to-tickets** ticket template (**Layers**, **Verification**, **Implementation details**) | Verification checklist alignment |
-| **to-implementation** handoff wording | Pipeline placement |
+| **to-implementation-doc** handoff wording | Pipeline placement |
 | **skill-writer** SPEC patterns | SPEC.md maintenance contract |
 
 ## Changelog

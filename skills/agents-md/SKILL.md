@@ -92,6 +92,7 @@ Co-Authored-By: (the agent's name and attribution byline)
 - Do not list installed skills or plugins except mandatory names in **`## Agent runtime defaults`** (caveman-first); avoid other skill inventories.
 - Do not include generic quality slogans.
 - When `## Agent skills` and `docs/agents/` already exist (e.g. after `setup-skills`), **preserve** that section and rely on those files for issue-tracker, triage-label, and domain detail instead of inlining them.
+- Keep feature-workflow details in `docs/agents/` or the relevant skill docs; `AGENTS.md` should point to those sources, not duplicate `to-prd` / `to-tickets` / `tdd` process rules.
 
 ## External Reference Rules
 

@@ -7,12 +7,12 @@ description: Turn one vertical slice from to-features into a slice-scoped PRD fi
 
 Produce a **thin, slice-scoped PRD** from **exactly one** block in a **to-features** breakdown, sanity-check assumptions with the user, then persist it under **`docs/{feature-slug}/PRD.md`** at the **workspace project root**.
 
-For full-product PRDs and issue-tracker publication, use **to-prd**. For breaking a PRD into slices, use **to-features**.
+For parent PRDs at `docs/{initiative-slug}/PRD.md`, use **to-prd**. For breaking a PRD into slices, use **to-features**.
 
 ## When to use
 
 - After **to-features** when you want a standalone PRD for **one** slice (e.g. before **tdd** or manual implementation)
-- User asks for a slice PRD, `docs/<feature>/PRD.md`, or to “document Slice k”
+- User asks for a slice PRD, `docs/{feature-slug}/PRD.md`, or to “document Slice k”
 - **Do not** use for whole-product PRDs, Epic-only specs, or replacing **to-prd**
 
 ## Input contract
@@ -20,7 +20,7 @@ For full-product PRDs and issue-tracker publication, use **to-prd**. For breakin
 You MUST have:
 
 1. **One slice section** matching the template in [to-features](../to-features/SKILL.md) (`### Slice k — [title]` with **Delivers**, **PRD trace**, **Depends on**, **Verify**, **TDD note**, etc.).
-2. **PRD source** for the parent PRD (URL, repo path, issue link, or explicit paste/excerpt). If missing, ask once before drafting — do **not** invent scope beyond **Delivers**, **PRD trace**, and **Verify**.
+2. **PRD source** for the parent PRD (prefer `docs/{initiative-slug}/PRD.md`; otherwise URL, repo path, issue link, or explicit paste/excerpt). If missing, ask once before drafting — do **not** invent scope beyond **Delivers**, **PRD trace**, and **Verify**.
 
 If the user supplied multiple slices, stop and ask which **single** slice to document.
 
@@ -30,7 +30,7 @@ Before drafting **PRD.md**:
 
 1. Run **one** batched **Ask User Question** round (structured UI); use **at most two** rounds if blockers remain (e.g. unresolved scope or slug disagreement).
 2. Cover what matters for **this slice only**: boundaries vs parent PRD, ambiguous acceptance, **Depends on** assumptions, **HITL** / risk, and **confirmation of the directory slug** for `docs/{feature-slug}/`.
-3. This is **not** a full [grill](../grill/SKILL.md) session — no obligation to edit `CONTEXT.md` or ADRs unless the user asks.
+3. This is **not** a full [grill](../grill/SKILL.md) session — no obligation to edit `CONTEXT.md` or ADRs unless the user asks. Preserve existing domain vocabulary when `CONTEXT.md` / `CONTEXT-MAP.md` exists.
 4. If the host has no Ask User Question tool, use clearly numbered multiple-choice questions in chat (same topics).
 
 Do **not** expand scope beyond what the slice + answers justify; use **`TBD`** where still unknown after questions.
@@ -116,7 +116,7 @@ Use this structure; adapt headings only if the project already defines a slice P
 ## Related skills
 
 - **to-features** — produces slice input
-- **to-implementation** — recommended next step after `PRD.md`: writes `docs/{feature-slug}/IMPLEMENTATION.md` for **to-tickets**
+- **to-implementation-doc** — recommended next step after `PRD.md`: writes `docs/{feature-slug}/IMPLEMENTATION.md` for **to-tickets**
 - **to-tickets** — after `IMPLEMENTATION.md`: writes numbered tickets under `docs/{feature-slug}/tickets/`
-- **to-prd** — full PRD + tracker workflow
+- **to-prd** — parent PRD at `docs/{initiative-slug}/PRD.md`
 - **tdd** — implementation against vertical slices

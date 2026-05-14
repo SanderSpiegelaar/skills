@@ -1,8 +1,8 @@
-# to-implementation Specification
+# to-implementation-doc Specification
 
 ## Intent
 
-**to-implementation** turns a slice-scoped **`docs/{feature-slug}/PRD.md`** (from **to-feature-prd**) into a co-located **`docs/{feature-slug}/IMPLEMENTATION.md`**: a **high-level** outline whose main section is **proposed vertical increments** mapped to PRD acceptance criteria, so **to-tickets** can produce numbered markdown tickets under **`docs/{feature-slug}/tickets/`** without re-deriving sequencing from the PRD alone.
+**to-implementation-doc** turns a slice-scoped **`docs/{feature-slug}/PRD.md`** (from **to-feature-prd**) into a co-located **`docs/{feature-slug}/IMPLEMENTATION.md`**: a **high-level** outline whose main section is **proposed vertical increments** mapped to PRD acceptance criteria, so **to-tickets** can produce numbered markdown tickets under **`docs/{feature-slug}/tickets/`** without re-deriving sequencing from the PRD alone.
 
 ## Scope
 
@@ -11,7 +11,7 @@ In scope:
 - Input contract tied to **to-feature-prd** output path and slug rules
 - Default output at `{project-root}/docs/{feature-slug}/IMPLEMENTATION.md`
 - Ticket-oriented template (work breakdown, dependencies, traceability, verification, handoff)
-- Optional shallow codebase read for vocabulary only (no scope expansion)
+- Optional shallow codebase / `CONTEXT.md` / ADR read for vocabulary only (no scope expansion)
 
 Out of scope:
 
@@ -52,12 +52,12 @@ Authoritative sources:
 
 ## Validation
 
-- **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-implementation` (when runner exists in repo)
+- **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-implementation-doc` (when runner exists in repo)
 - **Acceptance gates:** Valid frontmatter; explicit paths **`PRD.md`** / **`IMPLEMENTATION.md`**; template includes ticketing handoff and vertical-increment rules
 
 ## Known Limitations
 
-- Thin or **`TBD`**-heavy PRDs require user questions—**to-implementation** does not invent scope
+- Thin or **`TBD`**-heavy PRDs require user questions—**to-implementation-doc** does not invent scope
 - Project-specific doc layouts may need mirroring notes in **`AGENTS.md`** (skill allows legacy mirror only when conventions require it)
 
 ## Maintenance Notes

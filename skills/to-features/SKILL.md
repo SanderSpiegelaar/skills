@@ -5,9 +5,9 @@ description: Break a PRD produced by to-prd into vertical feature slices numbere
 
 # To Features
 
-Decompose a **to-prd-shaped** PRD into **vertical slices** in **strict implementation order** for smooth **TDD** (tracer bullets, not horizontal layers). For publishing slices to the issue tracker, hand the approved list to **to-tickets**.
+Decompose a **to-prd-shaped** PRD into **vertical slices** in **strict implementation order** for smooth **TDD** (tracer bullets, not horizontal layers). Preferred input is a parent PRD at **`docs/{initiative-slug}/PRD.md`**.
 
-Issue tracker wiring and triage labels should already exist — run **setup-skills** if not.
+Issue tracker wiring and triage labels should already exist before optional publication — run **setup-skills** if not.
 
 ## When to use
 
@@ -19,7 +19,7 @@ Issue tracker wiring and triage labels should already exist — run **setup-skil
 
 The PRD MUST align with the template in [to-prd](../to-prd/SKILL.md) (`<prd-template>`): executive summary, user stories (numbered), acceptance criteria, technical specs, testing and validation, etc.
 
-**Sources (best first):** published PRD issue body → pasted PRD → conversation that clearly contains those sections.
+**Sources (best first):** `docs/{initiative-slug}/PRD.md` → published PRD issue body → pasted PRD → conversation that clearly contains those sections.
 
 **If input is thin:** stop and ask for missing sections or mark unknowns `TBD` — do not invent scope.
 
@@ -46,6 +46,8 @@ Alignment: see [tdd](../tdd/SKILL.md) (vertical slices, anti-horizontal-slicing)
 
 When you need user choices on the breakdown, use the **Ask User Question** tool when available; otherwise numbered questions in chat.
 
+If `CONTEXT.md` or `CONTEXT-MAP.md` exists, preserve the project's domain vocabulary when naming slices and acceptance traces. If slicing reveals a durable vocabulary gap, flag it for `grill` or a `CONTEXT.md` update instead of inventing synonyms.
+
 ## Process
 
 1. **Ingest** the PRD; note numbered user stories, acceptance criteria, technical decisions, and testing/eval section
@@ -54,7 +56,7 @@ When you need user choices on the breakdown, use the **Ask User Question** tool 
 4. **Dependencies** between slices use these ids only (e.g. `Depends on: Slice 0`), never issue numbers
 5. **Present** output using the template below
 6. **Confirm** with the user: granularity, dependency edges, tracer placement (Slice 0), and HITL/AFK labels if used
-7. **Iterate** until approved; optionally feed the list to **to-tickets** for tracker issues, or run **to-feature-prd** on a single slice to write `docs/{feature-slug}/PRD.md`
+7. **Iterate** until approved. Recommended durable route: run **to-feature-prd** on one selected slice, then **to-implementation-doc**, then **to-tickets**. Fast route: hand the approved list to **to-tickets** only when there is already enough detail to write implementation tickets safely.
 
 ## Output template
 
@@ -63,7 +65,7 @@ Use this structure verbatim (adapt field content only):
 ```markdown
 # Vertical feature slices (TDD order)
 
-**PRD source:** [issue URL / paste note / conversation]
+**PRD source:** [docs/{initiative-slug}/PRD.md / issue URL / paste note / conversation]
 
 Order: Slice 0 Slice 1 … Slice n
 

@@ -1,6 +1,6 @@
 ---
 name: setup-skills
-description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs/agents/` so the engineering skills know this repo's issue tracker (GitHub or local markdown), triage label vocabulary, and domain doc layout. Run before first use of `to-issues`, `to-prd`, `triage`, `diagnose`, `tdd`, `improve-codebase-architecture`, or `zoom-out` — or if those skills appear to be missing context about the issue tracker, triage labels, or domain docs.
+description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs/agents/` so the engineering skills know this repo's issue tracker (GitHub or local markdown), triage label vocabulary, and domain doc layout. Run before first use of `to-prd`, `to-features`, `to-feature-prd`, `to-implementation-doc`, `to-tickets`, `triage`, `diagnose`, `tdd`, `finish-feature`, `improve-codebase-architecture`, or `zoom-out` — or if those skills appear to be missing context about the issue tracker, triage labels, or domain docs.
 disable-model-invocation: true
 ---
 
@@ -11,6 +11,8 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Issue tracker** — where issues live (**GitHub** or **local markdown** under `.scratch/`)
 - **Triage labels** — by default, the same five state-role strings the `triage` skill uses (1:1 mapping); customize only when the user asks
 - **Domain docs** — where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
+
+This setup supports the core workflow: **to-prd → to-features → to-feature-prd → to-implementation-doc → to-tickets → tdd → finish-feature**.
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -33,9 +35,11 @@ Summarise what's present and what's missing. Walk the user through **two** decis
 
 Assume the user does not know what these terms mean. Each section starts with a short explainer (what it is, why these skills need it, what changes if they pick differently). Then show the choices and the default.
 
+Use the host's **Ask User Question** / structured question tool for these choices when available. If the host has no structured question tool, ask the same concise numbered questions in chat.
+
 **Section A — Issue tracker.**
 
-> Explainer: The "issue tracker" is where issues live for this repo. Skills like `to-issues`, `triage`, and `to-prd` read from and write to it — they need to know whether to use the `gh` CLI (GitHub Issues) or markdown files under `.scratch/`. Pick the place you actually track work for this repo.
+> Explainer: The "issue tracker" is where issues live for this repo. Skills like `to-tickets`, `triage`, and `to-prd` may publish to it when the user asks — they need to know whether to use the `gh` CLI (GitHub Issues) or markdown files under `.scratch/`. Pick the place you actually track work for this repo.
 
 Only two options are supported:
 

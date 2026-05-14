@@ -42,6 +42,16 @@ RIGHT (vertical):
 
 ## Workflow
 
+### Ticket-driven input contract
+
+When invoked from **to-tickets** output, start by reading:
+
+- The assigned ticket under `docs/{feature-slug}/tickets/`
+- Referenced `docs/{feature-slug}/PRD.md` and `docs/{feature-slug}/IMPLEMENTATION.md`
+- Relevant `CONTEXT.md` / `CONTEXT-MAP.md` and ADRs for domain vocabulary and constraints
+
+Use the ticket's **Acceptance criteria** as the observable behavior target and **Implementation todos** as execution hints, not as permission to skip RED→GREEN. Update ticket checkboxes only when the project convention allows editing planning docs.
+
 ### 1. Planning
 
 When exploring the codebase, use the project's domain glossary so that test names and interface vocabulary match the project's language, and respect ADRs in the area you're touching.
@@ -97,6 +107,10 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 - [ ] Run tests after each refactor step
 
 **Never refactor while RED.** Get to GREEN first.
+
+### 5. Handoff
+
+After all tickets under `docs/{feature-slug}/tickets/` are complete and verified, recommend **[finish-feature](../finish-feature/SKILL.md)** so the repo gets a verified `docs/{feature-slug}/IMPLEMENTED.md` handoff.
 
 ## Checklist Per Cycle
 

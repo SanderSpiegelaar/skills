@@ -1,13 +1,13 @@
 ---
 name: to-tickets
-description: Break work into tracer-bullet vertical-slice implementation tickets as numbered markdown files under docs/{feature-slug}/tickets/, using a unified template (documentation references, implementation details including engineering context for AFK agents, acceptance criteria, implementation todos). Inputs docs/{feature-slug}/PRD.md (to-feature-prd) and docs/{feature-slug}/IMPLEMENTATION.md (to-implementation). Issue-tracker publish only when the user explicitly asks.
+description: Break implementation increments into tracer-bullet vertical tickets as numbered markdown files under docs/{feature-slug}/tickets/, using a unified template (documentation references, implementation details including engineering context for AFK agents, acceptance criteria, implementation todos). Inputs docs/{feature-slug}/PRD.md (to-feature-prd) and docs/{feature-slug}/IMPLEMENTATION.md (to-implementation-doc). Issue-tracker publish only when the user explicitly asks.
 ---
 
 # To tickets
 
-Break approved work into **independently grabbable implementation tickets** as **numbered markdown files** under **`docs/{feature-slug}/tickets/`**, using **vertical slices** (tracer bullets).
+Break approved **implementation increments** into **independently grabbable tickets** as **numbered markdown files** under **`docs/{feature-slug}/tickets/`**, using **vertical slices** (tracer bullets) inside the selected feature slice.
 
-**Happy-path inputs:** **`docs/{feature-slug}/PRD.md`** ([to-feature-prd](../to-feature-prd/SKILL.md)) and **`docs/{feature-slug}/IMPLEMENTATION.md`** ([to-implementation](../to-implementation/SKILL.md)) in the **target project root**. Same **`{feature-slug}`** (kebab-case) as those files’ directory.
+**Happy-path inputs:** **`docs/{feature-slug}/PRD.md`** ([to-feature-prd](../to-feature-prd/SKILL.md)) and **`docs/{feature-slug}/IMPLEMENTATION.md`** ([to-implementation-doc](../to-implementation-doc/SKILL.md)) in the **target project root**. Same **`{feature-slug}`** (kebab-case) as those files’ directory.
 
 **Default output:** filesystem tickets only. **Do not** publish to the issue tracker unless the **user explicitly asks**; if they do, use the repo’s tracker config and triage vocabulary (see **`docs/agents/`** — run setup skills if missing).
 
@@ -18,8 +18,8 @@ Break approved work into **independently grabbable implementation tickets** as *
 | **Directory** | `{project-root}/docs/{feature-slug}/tickets/` — create if needed |
 | **Order** | Filename numeric prefix = **implementation order** (topological: blockers lower than dependents) |
 | **Padding** | Use zero-padded prefixes so lexical sort matches execution order: `01-…`, `02-…`; use `001-` if there may be more than 99 tickets |
-| **Filename** | `{nn}-{short-kebab-title}.md` — ASCII, lowercase; derive slug from slice title (collapse whitespace, strip punctuation) |
-| **Collisions** | If two slices would share the same slug, append `-2`, `-b`, etc. |
+| **Filename** | `{nn}-{short-kebab-title}.md` — ASCII, lowercase; derive slug from implementation increment title (collapse whitespace, strip punctuation) |
+| **Collisions** | If two increments would share the same slug, append `-2`, `-b`, etc. |
 
 ## Process
 
@@ -32,7 +32,7 @@ Work from conversation context or paths the user supplies.
 1. Resolve **`docs/{feature-slug}/PRD.md`** and **`docs/{feature-slug}/IMPLEMENTATION.md`**.
 2. **Reading order:** **`IMPLEMENTATION.md` first** — sequencing, dependencies, proposed vertical increments and **Maps to PRD**; then **`PRD.md`** — scope, requirements, acceptance criteria.
 
-**If `IMPLEMENTATION.md` is missing:** do **not** silently substitute. **Stop once**, explain that sequencing will be coarser, and proceed from **`PRD.md` alone only after explicit user confirmation** (they may prefer running **to-implementation** first).
+**If `IMPLEMENTATION.md` is missing:** do **not** silently substitute. **Stop once**, explain that sequencing will be coarser, and proceed from **`PRD.md` alone only after explicit user confirmation** (they may prefer running **to-implementation-doc** first).
 
 **Other sources:** If the user passes an issue reference (number, URL, or path), fetch and read it when breaking down from tracker context instead of slice docs.
 
@@ -40,39 +40,39 @@ Work from conversation context or paths the user supplies.
 
 If you have not already explored the codebase, do so to ground ticket wording in the project’s domain glossary and ADRs.
 
-### 3. Draft vertical slices
+### 3. Draft implementation increments
 
-Break the work into **tracer bullet** tickets. Each ticket is a thin vertical slice through **all** integration layers end-to-end, **not** a horizontal layer-only task.
+Break the work into **tracer bullet** implementation increments. Each ticket is a thin vertical path through **all** integration layers end-to-end, **not** a horizontal layer-only task.
 
-Slices may be **HITL** or **AFK**. HITL slices need human interaction (decision, review). AFK slices can be implemented without human context. Prefer AFK where possible.
+Increments may be **HITL** or **AFK**. HITL increments need human interaction (decision, review). AFK increments can be implemented without human context. Prefer AFK where possible.
 
 <vertical-slice-rules>
-- Each slice delivers a narrow but COMPLETE path through every layer (schema, API, UI, tests)
-- A completed slice is demoable or verifiable on its own
-- Prefer many thin slices over few thick ones
+- Each increment delivers a narrow but COMPLETE path through every layer it touches (schema, API, UI, tests)
+- A completed increment is demoable or verifiable on its own
+- Prefer many thin increments over few thick ones
 </vertical-slice-rules>
 
 ### 4. Quiz the user
 
-Present the proposed breakdown as a numbered list. For each slice, show:
+Present the proposed breakdown as a numbered list. Use the host's **Ask User Question** / structured question tool when available for approval or changes; otherwise ask concise numbered questions in chat. For each increment, show:
 
 - **Title**: short descriptive name
 - **Type**: HITL / AFK
-- **Blocked by**: which other slices (if any) must complete first
+- **Blocked by**: which other increments (if any) must complete first
 - **User stories covered**: which user stories this addresses (if the source material has them)
 
 Ask the user:
 
 - Does the granularity feel right? (too coarse / too fine)
 - Are the dependency relationships correct?
-- Should any slices be merged or split further?
-- Are the correct slices marked as HITL and AFK?
+- Should any increments be merged or split further?
+- Are the correct increments marked as HITL and AFK?
 
 Iterate until the user approves the breakdown.
 
 ### 5. Write ticket files
 
-For **each approved slice**, write one file under **`docs/{feature-slug}/tickets/`** using the numeric prefix and naming rules above. Assign **sequential order** consistent with dependencies (blockers get smaller numbers).
+For **each approved implementation increment**, write one file under **`docs/{feature-slug}/tickets/`** using the numeric prefix and naming rules above. Assign **sequential order** consistent with dependencies (blockers get smaller numbers).
 
 Every ticket **MUST** use the unified **`<ticket-file-template>`** below—same headings and section purposes—so files stay consistent for humans and AFK agents. Each file should stand alone without requiring the issue tracker.
 
@@ -88,18 +88,20 @@ Do **not** close or modify a parent tracker issue unless the user asks.
 
 - Populate **Documentation references** from **`IMPLEMENTATION.md`** and **`PRD.md`** first; add **`CONTEXT.md`**, **`docs/adr/…`**, **`AGENTS.md`** only when exploration surfaced durable anchors (repo-relative paths).
 - Use **Implementation details** for stable boundaries (packages, modules, test areas); avoid brittle line-level paths unless they encode a real constraint. **Do not** turn tickets into tutorials: no long copy-paste solutions, exhaustive walkthroughs, or pages of production code — prefer citations, patterns, and short API references so the executing agent can adapt to this repo.
-- Fill **Engineering context** when the slice needs library/stack guidance, idioms, or test seams; omit or write **`TBD`** if **`IMPLEMENTATION.md`** already suffices. Prefer official doc or release-note links over pasted blocks.
+- Fill **Engineering context** when the increment needs library/stack guidance, idioms, or test seams; omit or write **`TBD`** if **`IMPLEMENTATION.md`** already suffices. Prefer official doc or release-note links over pasted blocks.
+- Use **Conflicts / overlaps** when two tickets touch the same files, migrations, APIs, feature flags, or rollout gates. Each ticket should have a unique acceptance surface; shared regression coverage must be labeled as shared.
 - **Acceptance criteria** are the observable definition of done—align with PRD acceptance criteria. **Implementation todos** are granular `- [ ]` execution steps; do not paste AC verbatim unless it helps as a milestone checkpoint.
-- Order **Implementation todos** roughly by dependency within the slice (mirror **TDD** posture when the PRD or repo conventions expect tests alongside behavior).
+- Order **Implementation todos** roughly by dependency within the increment (mirror **TDD** posture when the PRD or repo conventions expect tests alongside behavior).
 - After the quiz is approved, tailor todos to this repo’s layout so an AFK agent can execute without rereading the entire PRD.
 
 <ticket-file-template>
-# [Ticket title — same as slice title]
+# [Ticket title — same as increment title]
 
 ## Summary
 
 - **Type:** HITL | AFK
 - **Blocked by:** **`NN-other-slug.md`** (peer ticket in this directory) or **None — can start immediately**
+- **Conflicts / overlaps:** [peer ticket, migration, API, or file area] or **None known**
 
 ## Documentation references
 
@@ -107,14 +109,14 @@ Do **not** close or modify a parent tracker issue unless the user asks.
 - **Implementation outline:** `docs/{feature-slug}/IMPLEMENTATION.md`
 - **Traceability:**
   - **IMPLEMENTATION.md increment:** #… (row index from **Proposed work breakdown**, if applicable)
-  - **PRD:** requirement / acceptance-criteria references this slice satisfies (e.g. AC bullets, requirement IDs)
+  - **PRD:** requirement / acceptance-criteria references this increment satisfies (e.g. AC bullets, requirement IDs)
 - **Project docs (optional):** e.g. `CONTEXT.md`, `docs/adr/NNN-title.md`, `AGENTS.md` — include only when relevant
 
 ## Implementation details
 
 ### Approach
 
-How this tracer-bullet slice is executed end-to-end (integration story). Prefer behavior and boundaries over a layer-by-layer rewrite of the PRD.
+How this tracer-bullet increment is executed end-to-end (integration story). Prefer behavior and boundaries over a layer-by-layer rewrite of the PRD.
 
 ### Layers and boundaries
 
@@ -135,7 +137,7 @@ HITL gates, migrations, backwards compatibility, feature flags — use **`TBD`**
 
 ### Verification
 
-How to prove this slice locally (commands, manual scenario, test suites to exercise).
+How to prove this increment locally (commands, manual scenario, test suites to exercise).
 
 Optional extras here (not duplicate of **Engineering context**): trimmed **prototype** excerpt or decision-rich pseudocode — only when prose or API shape stays unclear; cite source and strip noise.
 
@@ -159,5 +161,5 @@ Confirm in chat: directory written, file list with paths, and any **`TBD`** carr
 
 ## Related skills
 
-- **ticket-researcher** — **optional:** deepen a thin ticket after files exist (Libraries / patterns / gotchas / verification) via web search and official-docs lookup when MCP tools are available; **not** chained by default ([ticket-researcher](../ticket-researcher/SKILL.md)). Run when, for example: the slice is still thin after authoring; stack or library landscape is unfamiliar; integration is risky; or guidance must be refreshed from upstream docs — **never** mandatory for every breakdown.
+- **ticket-researcher** — **optional:** deepen a thin ticket after files exist (Libraries / patterns / gotchas / verification) via web search and official-docs lookup when MCP tools are available; **not** chained by default ([ticket-researcher](../ticket-researcher/SKILL.md)). Run when, for example: the increment is still thin after authoring; stack or library landscape is unfamiliar; integration is risky; or guidance must be refreshed from upstream docs — **never** mandatory for every breakdown.
 - **finish-feature** — after **all** tickets under **`docs/{feature-slug}/tickets/`** are implemented; verifies against the repo and writes **`docs/{feature-slug}/IMPLEMENTED.md`** ([finish-feature](../finish-feature/SKILL.md)).

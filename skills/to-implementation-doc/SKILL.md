@@ -24,7 +24,7 @@ You MUST have:
 1. **`docs/{feature-slug}/PRD.md`** — path in the target project or full pasted body. Use the **same** `{feature-slug}` as in that file’s directory.
 2. Enough substance to proceed: **Goal**, **Scope**, **Requirements**, and **Acceptance criteria** should not be mostly empty or **`TBD`**. If they are, **stop once** and ask for the minimum missing detail (mirror **to-feature-prd** discipline).
 
-Optional: shallow read of the codebase or `AGENTS.md` for domain terms and ADRs—only if it improves ticket vocabulary without expanding scope.
+Optional: shallow read of the codebase, `AGENTS.md`, `CONTEXT.md` / `CONTEXT-MAP.md`, and relevant ADRs for domain terms and boundaries—only if it improves ticket vocabulary without expanding scope. If the outline introduces or sharpens durable domain vocabulary, flag the suggested `CONTEXT.md` update unless the user has authorized context edits.
 
 ## Output path
 
@@ -39,7 +39,7 @@ If the project’s documentation standard requires a second copy elsewhere (e.g.
 ## Process
 
 1. **Ingest** `PRD.md`: slice identity, type (AFK | HITL), dependencies, requirements, acceptance criteria, **Verify** / TDD note.
-2. **Optional:** skim repo layout and ADRs for naming and boundaries—do not add scope beyond the PRD.
+2. **Optional:** skim repo layout, domain context, and ADRs for naming and boundaries—do not add scope beyond the PRD.
 3. If **Depends on** or slice boundaries are ambiguous, run **at most one** batched **Ask User Question** round (or numbered multiple-choice in chat). **Not** a full [grill](../grill/SKILL.md).
 4. **Draft** `IMPLEMENTATION.md` using the template below (adapt headings only if the project defines a local convention).
 5. **Write** the file at `docs/{feature-slug}/IMPLEMENTATION.md`.
@@ -103,7 +103,7 @@ Rules:
 
 ## Handoff
 
-Use the **to-tickets** skill with **`PRD.md`** and this **`IMPLEMENTATION.md`** together. It writes numbered markdown tickets under **`docs/{feature-slug}/tickets/`** (default deliverable). Publishing to the issue tracker is **optional** and only when the user asks. Each ticket must be a **tracer-bullet vertical slice** (end-to-end, demoable or verifiable), not horizontal layer-only work. After tickets are merged, **[finish-feature](../finish-feature/SKILL.md)** can write **`docs/{feature-slug}/IMPLEMENTED.md`** (verified as-built handoff).
+Use the **to-tickets** skill with **`PRD.md`** and this **`IMPLEMENTATION.md`** together. It writes numbered markdown tickets under **`docs/{feature-slug}/tickets/`** (default deliverable). Publishing to the issue tracker is **optional** and only when the user asks. Each ticket maps to one **tracer-bullet implementation increment** (end-to-end, demoable or verifiable), not horizontal layer-only work. After tickets are merged, **[finish-feature](../finish-feature/SKILL.md)** can write **`docs/{feature-slug}/IMPLEMENTED.md`** (verified as-built handoff).
 ```
 
 ## Related skills

@@ -22,8 +22,8 @@ Close the loop after **[to-tickets](../to-tickets/SKILL.md)**: produce a **verif
 
 **Do not** use for:
 
-- Turning a PRD into tickets — use **[to-tickets](../to-tickets/SKILL.md)** (+ **[to-implementation](../to-implementation/SKILL.md)**)
-- Planning or slicing — **to-feature-prd**, **to-features**, **to-implementation**
+- Turning a PRD into tickets — use **[to-tickets](../to-tickets/SKILL.md)** (+ **[to-implementation-doc](../to-implementation-doc/SKILL.md)**)
+- Planning or slicing — **to-feature-prd**, **to-features**, **to-implementation-doc**
 - When tickets are **not** finished — clarify scope or stop
 
 ## Output path (default)
@@ -54,8 +54,10 @@ If **`IMPLEMENTATION.md`** is missing: proceed from **PRD + tickets**, and note 
 2. **Read** `PRD.md`, `IMPLEMENTATION.md` (if present), and **all** ticket files — extract claimed paths, flags, migrations, APIs, verification commands.
 3. **Verify** using [`references/verification-checklist.md`](references/verification-checklist.md): confirm paths and behavior claims against the repo (read/grep); run **narrow, safe** test/lint commands from tickets when listed; record **explicit unverified** where you cannot verify.
 4. **Draft** **`IMPLEMENTED.md`** from [`references/implemented-template.md`](references/implemented-template.md). Prefer tables, bullets, and repo-relative paths; include **Non-goals & do-not-assume** and any **ticket ↔ code drift**.
-5. **Write** the file at the resolved path (create **`docs/{feature-slug}/`** only if absent and appropriate).
-6. **Confirm** in chat: path written; **`TBD` / unverified** items; **drift** between tickets and code.
+5. Check whether shipped behavior introduced or clarified durable domain vocabulary. If so, update `CONTEXT.md` when the user has authorized context edits; otherwise flag the suggested glossary update in chat.
+6. If finishing work in this skill collection itself, remind the agent to update the repo-level `CHANGELOG.md` with the changes made.
+7. **Write** the file at the resolved path (create **`docs/{feature-slug}/`** only if absent and appropriate).
+8. **Confirm** in chat: path written; **`TBD` / unverified** items; **drift** between tickets and code.
 
 ## Optional follow-up
 
@@ -64,7 +66,7 @@ If **`IMPLEMENTATION.md`** is missing: proceed from **PRD + tickets**, and note 
 ## Related skills
 
 - **to-tickets** — filesystem tickets before implementation
-- **to-implementation** — **`IMPLEMENTATION.md`** outline
+- **to-implementation-doc** — **`IMPLEMENTATION.md`** outline
 - **agents-md** — optional **`AGENTS.md`** pointer
 
 ## Context template

@@ -37,7 +37,7 @@ Out of scope:
 Authoritative sources:
 
 - The selected slice text and **PRD source** line from **to-features** output
-- Parent PRD when the user provides a link or paste
+- Parent PRD, preferably `docs/{initiative-slug}/PRD.md`, when the user provides a path, link, or paste
 - `skills/to-features/SKILL.md` (slice template)
 - `skills/to-feature-prd/SKILL.md` (runtime template)
 
