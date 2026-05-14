@@ -24,6 +24,7 @@ flowchart LR
 | Folder | `name` (frontmatter) | Purpose |
 |--------|----------------------|---------|
 | [skill-writer](skills/skill-writer/) | `skill-writer` | Create, synthesize, and iterate skills against the Agent Skills specification. |
+| [repo-onboard](skills/repo-onboard/) | `repo-onboard` | Inventory and migrate existing repos into the workflow before seeding `docs/agents/`. |
 | [setup-skills](skills/setup-skills/) | `setup-skills` | Scaffold `AGENTS.md` / `CLAUDE.md` and `docs/agents/` so other skills know your issue tracker, triage labels, and domain docs layout. |
 | [agents-md](skills/agents-md/) | `agents-md` | Concise root `AGENTS.md` / `CLAUDE.md` from repo signals and user or project requirements. |
 | [tdd](skills/tdd/) | `tdd` | Test-driven development (red–green–refactor), integration tests, test-first workflows. |
@@ -44,7 +45,7 @@ The directory name and frontmatter `name` match for the skills in this repo.
 
 **Install per your host’s documentation.** For Cursor, copy or symlink individual skill folders into a skills location your workspace or user config uses (often under `.cursor/skills/` for a project or your user Cursor config). See [Cursor Agent Skills](https://cursor.com/docs/context/skills) for current install paths and behavior.
 
-Many engineering-oriented skills assume repository context configured by [setup-skills](skills/setup-skills/SKILL.md) (issue tracker, triage label strings, where domain docs live). Run or adapt that flow once per target repo when those skills need that wiring.
+Many engineering-oriented skills assume repository context configured by [setup-skills](skills/setup-skills/SKILL.md) (issue tracker, triage label strings, where domain docs live). For existing or messy repos, start with [repo-onboard](skills/repo-onboard/SKILL.md) to inventory and plan migration before running setup.
 
 **Validate after edits.** From the repo root, structural checks (frontmatter, `SKILL.md` presence, referenced paths) can be run with:
 
@@ -68,6 +69,7 @@ Use this sequence when turning an idea into scoped docs, tickets, and shipped sl
 
 **Parent PRD file:** In the target repo, treat **`docs/{initiative-slug}/PRD.md`** as the canonical markdown handoff for later steps. When you run **to-prd**, have the agent write the approved PRD to that path. Issue-tracker publication is optional per [setup-skills](skills/setup-skills/SKILL.md); if a tracker copy is primary, pass that issue URL or paste the body in step 5 instead. Feature-level docs use **`docs/{feature-slug}/PRD.md`** (capital `PRD.md`), **`IMPLEMENTATION.md`**, **`tickets/`**, and **`IMPLEMENTED.md`** as defined in those skills.
 
+0. **[repo-onboard](skills/repo-onboard/)** — For existing or messy repos, inventory current agent docs and tracker signals, then plan migration before writing.
 1. **[setup-skills](skills/setup-skills/)** — Scaffold repo wiring: `docs/agents/` (tracker, triage labels, domain doc conventions), and align `AGENTS.md` / `CLAUDE.md` with the `## Agent skills` block so downstream skills know where issues and docs live.
 2. **[agents-md](skills/agents-md/)** — Produce a specialized root **`AGENTS.md`** (and **`CLAUDE.md`** if needed) from the project stack, commands, and user requirements.
 3. **[grill](skills/grill/)** — User shares the idea; the agent runs the questionnaire / grilling session and updates domain docs (**`CONTEXT.md`**, ADRs) as decisions land.
@@ -81,6 +83,7 @@ Use this sequence when turning an idea into scoped docs, tickets, and shipped sl
 
 ```mermaid
 flowchart TD
+  onboard[repo-onboard optional]
   setup[setup-skills]
   agents[agents-md]
   grillStep[grill]
@@ -93,6 +96,7 @@ flowchart TD
     tddStep[tdd per ticket]
     fin[finish-feature]
   end
+  onboard --> setup
   setup --> agents
   agents --> grillStep
   grillStep --> prd

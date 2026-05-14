@@ -99,4 +99,4 @@ Order: Slice 0 Slice 1 … Slice n
 
 ## Example
 
-See [references/example-prd-slices.md](references/example-prd-slices.md) for a focused slice-list example and [`../../docs/skill-system/examples/intelligent-search/vertical-slices.md`](../../docs/skill-system/examples/intelligent-search/vertical-slices.md) for the golden workflow example. The durable downstream route is defined in [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md).
+See [references/example-prd-slices.md](references/example-prd-slices.md) for a focused slice-list example and [`references/example-intelligent-search-slices.md`](references/example-intelligent-search-slices.md) for the golden workflow example. The durable downstream route is defined in [`references/workflow-contract.md`](references/workflow-contract.md).

@@ -11,7 +11,7 @@ disable-model-invocation: true
 - **Input:** Target repo needing agent workflow setup.
 - **Do:** Inspect repo signals, ask tracker/domain-doc choices, create `docs/agents/` and agent instruction pointers.
 - **Output:** `docs/agents/issue-tracker.md`, `triage-labels.md`, `domain.md`, plus `AGENTS.md` / `CLAUDE.md` alignment.
-- **Next:** Run **agents-md** if root instructions need cleanup.
+- **Next:** Run **agents-md** if root instructions need cleanup. Use the bundled workflow contract for artifact names and handoff order.
 
 ## Workflow
 
@@ -34,7 +34,7 @@ disable-model-invocation: true
 
 ## References
 
-- [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md) — canonical artifact hierarchy and handoff chain for the core workflow.
+- [`references/workflow-contract.md`](references/workflow-contract.md) — portable artifact hierarchy and handoff chain for the core workflow.
 - [`references/agent-skills-block.md`](references/agent-skills-block.md) — `AGENTS.md` / `CLAUDE.md` block.
 - [`references/issue-tracker-github.md`](references/issue-tracker-github.md) — GitHub issue-tracker seed.
 - [`references/issue-tracker-local.md`](references/issue-tracker-local.md) — local markdown issue-tracker seed.

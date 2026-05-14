@@ -12,7 +12,7 @@ In scope:
 - Triage label mapping using the default state labels unless the user overrides
 - Domain-doc layout choice: single-context `CONTEXT.md` + `docs/adr/`, or multi-context `CONTEXT-MAP.md`
 - `## Agent skills` block in `AGENTS.md` or `CLAUDE.md`
-- Reference to the shared workflow contract at `docs/skill-system/workflow.md` when this repo is available
+- Bundled reference to the workflow contract at `references/workflow-contract.md`
 
 Out of scope:
 
@@ -25,12 +25,12 @@ Out of scope:
 - **Required first actions:** inspect repo signals before asking the user
 - **Required outputs:** `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, `docs/agents/domain.md`, and an agent-instruction pointer block
 - **User questions:** use structured questions when available for tracker and domain-doc layout
-- **Non-negotiable constraints:** preserve existing user instructions and avoid duplicate `## Agent skills` blocks
+- **Non-negotiable constraints:** preserve existing user instructions, avoid duplicate `## Agent skills` blocks, and keep runtime references portable when installed outside this repository
 
 ## Validation
 
 - `SKILL.md` frontmatter is valid and links resolve.
-- Seed reference files exist for tracker, triage labels, domain docs, and agent block.
+- Seed reference files exist for tracker, triage labels, domain docs, workflow contract, and agent block.
 - Output contract names all files setup writes.
 - Related skills include the workflow consumers.
 

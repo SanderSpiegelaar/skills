@@ -39,11 +39,11 @@ Use concrete, measurable requirements. Avoid vague words like "fast", "easy", or
 
 ## References
 
-- [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md) — canonical artifact hierarchy and handoff chain.
+- [`references/workflow-contract.md`](references/workflow-contract.md) — portable artifact hierarchy and handoff chain.
 - [`references/prd-template.md`](references/prd-template.md) — canonical parent PRD template.
 - [`references/requirements-quality.md`](references/requirements-quality.md) — vague vs concrete requirements guidance.
 - [`references/example-intelligent-search.md`](references/example-intelligent-search.md) — longer worked example.
-- [`../../docs/skill-system/examples/intelligent-search/parent-prd.md`](../../docs/skill-system/examples/intelligent-search/parent-prd.md) — golden parent PRD example.
+- [`references/example-parent-prd.md`](references/example-parent-prd.md) — golden parent PRD example.
 
 ## Related skills
 

@@ -34,10 +34,10 @@ Do not expand scope beyond the selected slice plus user answers. Use `TBD` where
 
 ## References
 
-- [`../../docs/skill-system/workflow.md`](../../docs/skill-system/workflow.md) — canonical artifact hierarchy and handoff chain.
+- [`references/workflow-contract.md`](references/workflow-contract.md) — portable artifact hierarchy and handoff chain.
 - [`references/slice-prd-template.md`](references/slice-prd-template.md) — canonical `PRD.md` body.
 - [`references/path-rules.md`](references/path-rules.md) — slug, collision, and path rules.
-- [`../../docs/skill-system/examples/intelligent-search/slice-prd.md`](../../docs/skill-system/examples/intelligent-search/slice-prd.md) — golden slice PRD example.
+- [`references/example-slice-prd.md`](references/example-slice-prd.md) — golden slice PRD example.
 
 ## Related skills
 

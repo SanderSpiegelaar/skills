@@ -22,7 +22,7 @@ Close the loop after **[to-tickets](../to-tickets/SKILL.md)**: produce a **verif
 |---------------------|------|
 | Full markdown skeleton for **`IMPLEMENTED.md`** | [`references/implemented-template.md`](references/implemented-template.md) |
 | Step-by-step verification against tickets + code | [`references/verification-checklist.md`](references/verification-checklist.md) |
-| Golden as-built style example | [`../../docs/skill-system/examples/intelligent-search/implemented.md`](../../docs/skill-system/examples/intelligent-search/implemented.md) |
+| Golden as-built style example | [`references/example-implemented.md`](references/example-implemented.md) |
 
 ## When to use
 

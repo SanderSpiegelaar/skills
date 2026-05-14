@@ -32,9 +32,9 @@ Authoritative sources:
 
 - User conversation and answers
 - Existing repo docs, `CONTEXT.md`, ADRs, and relevant code when available
-- `docs/skill-system/workflow.md` for artifact hierarchy
+- `references/workflow-contract.md` for artifact hierarchy
 - `references/prd-template.md` for PRD body structure
-- `docs/skill-system/examples/intelligent-search/parent-prd.md` for golden style
+- `references/example-parent-prd.md` for golden style
 
 ## Validation
 
