@@ -2,7 +2,7 @@
 
 ## Intent
 
-**finish-feature** runs after **to-tickets** work is implemented: verify the repository against **`docs/{feature-slug}/PRD.md`**, **`IMPLEMENTATION.md`** (recommended), and **all** **`docs/{feature-slug}/tickets/*.md`**, then write **`docs/{feature-slug}/IMPLEMENTED.md`** — a concise **as-built** handoff so future agents avoid inferring behavior from stale plans or guesses.
+**finish-feature** runs after **to-tickets** work is implemented: verify the repository against **`docs/{nn}-{feature-slug}/PRD.md`**, **`IMPLEMENTATION.md`** (recommended), and **all** **`docs/{nn}-{feature-slug}/tickets/*.md`**, then write **`docs/{nn}-{feature-slug}/IMPLEMENTED.md`** — a concise **as-built** handoff so future agents avoid inferring behavior from stale plans or guesses.
 
 Default filename **`IMPLEMENTED.md`** pairs with **`IMPLEMENTATION.md`** (planned outline vs verified reality).
 
@@ -30,9 +30,9 @@ Out of scope:
 
 ## Runtime Contract
 
-- **Required inputs:** **`docs/{feature-slug}/PRD.md`**; **all** **`docs/{feature-slug}/tickets/*.md`**; **`{project-root}`**
-- **Recommended:** **`docs/{feature-slug}/IMPLEMENTATION.md`**
-- **Required outputs:** **`docs/{feature-slug}/IMPLEMENTED.md`** (unless overridden — same folder, same template contract)
+- **Required inputs:** **`docs/{nn}-{feature-slug}/PRD.md`**; **all** **`docs/{nn}-{feature-slug}/tickets/*.md`**; **`{project-root}`**
+- **Recommended:** **`docs/{nn}-{feature-slug}/IMPLEMENTATION.md`**
+- **Required outputs:** **`docs/{nn}-{feature-slug}/IMPLEMENTED.md`** (unless overridden — same folder, same template contract)
 - **Non-negotiable constraints:** Verify claims against repo when possible; mark **`Unverified`** / **`Not run`** honestly; cite repo-relative anchors; document ticket-to-code drift
 - **Bundled references:** **`references/implemented-template.md`**, **`references/verification-checklist.md`**
 

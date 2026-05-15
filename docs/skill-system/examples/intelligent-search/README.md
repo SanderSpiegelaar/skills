@@ -5,8 +5,8 @@ This directory shows one complete artifact chain for the core workflow. It is in
 | Artifact | Produced by | Purpose |
 |----------|-------------|---------|
 | [`parent-prd.md`](parent-prd.md) | `to-prd` | Parent initiative PRD, equivalent to `docs/intelligent-search/PRD.md` in a target repo |
-| [`vertical-slices.md`](vertical-slices.md) | `to-features` | Ordered vertical slices from the parent PRD |
-| [`slice-prd.md`](slice-prd.md) | `to-feature-prd` | Slice-scoped PRD, equivalent to `docs/tracer-qa-path/PRD.md` |
+| [`vertical-slices.md`](vertical-slices.md) | `to-features` | Ordered vertical slices from the parent PRD, equivalent to `docs/intelligent-search/FEATURES.md` |
+| [`slice-prd.md`](slice-prd.md) | `to-feature-prd` | Slice-scoped PRD, equivalent to `docs/00-tracer-qa-path/PRD.md` |
 | [`implementation.md`](implementation.md) | `to-implementation-doc` | Ticket-ready vertical increments |
 | [`tickets/01-fixture-retrieval-answer.md`](tickets/01-fixture-retrieval-answer.md) | `to-tickets` | First executable implementation ticket |
 | [`tickets/02-citation-rendering.md`](tickets/02-citation-rendering.md) | `to-tickets` | Second executable implementation ticket |

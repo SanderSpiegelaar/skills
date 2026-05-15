@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions red-green-refactor, wants integration tests, asks for test-first development, or is implementing a ticket from docs/{feature-slug}/tickets/.
+description: Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions red-green-refactor, wants integration tests, asks for test-first development, or is implementing a ticket from docs/{nn}-{feature-slug}/tickets/.
 ---
 
 # Test-Driven Development
@@ -14,7 +14,7 @@ description: Test-driven development with red-green-refactor loop. Use when user
 
 ## Workflow
 
-1. **Read ticket context when present.** Start with the assigned ticket, referenced `docs/{feature-slug}/PRD.md`, referenced `docs/{feature-slug}/IMPLEMENTATION.md`, relevant `CONTEXT.md` / `CONTEXT-MAP.md`, and ADRs.
+1. **Read ticket context when present.** Start with the assigned ticket, referenced `docs/{nn}-{feature-slug}/PRD.md`, referenced `docs/{nn}-{feature-slug}/IMPLEMENTATION.md`, relevant `CONTEXT.md` / `CONTEXT-MAP.md`, and ADRs.
 2. **Plan behavior, not internals.** Confirm the public interface and highest-value observable behaviors. Use structured questions when choices are blocking.
 3. **Avoid horizontal slicing.** Do not write all tests first and then all implementation. See [`references/horizontal-slices.md`](references/horizontal-slices.md).
 4. **Write one RED test.** The test must describe behavior through a public interface and fail for the expected reason.
@@ -22,7 +22,7 @@ description: Test-driven development with red-green-refactor loop. Use when user
 6. **Repeat one behavior at a time.** Each next test should respond to what the previous cycle revealed.
 7. **Refactor only while green.** Use [`references/refactoring.md`](references/refactoring.md); run tests after each refactor step.
 8. **Update planning docs cautiously.** Update ticket checkboxes only when project convention allows editing planning docs.
-9. **Handoff when complete.** After all tickets under `docs/{feature-slug}/tickets/` are complete and verified, recommend [finish-feature](../finish-feature/SKILL.md).
+9. **Handoff when complete.** After all tickets under `docs/{nn}-{feature-slug}/tickets/` are complete and verified, recommend [finish-feature](../finish-feature/SKILL.md).
 
 ## Output contract
 

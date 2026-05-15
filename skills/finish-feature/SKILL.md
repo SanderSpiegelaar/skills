@@ -1,6 +1,6 @@
 ---
 name: finish-feature
-description: After all docs/{feature-slug}/tickets/ are implemented and merged, verify code against PRD, IMPLEMENTATION, and tickets, then write docs/{feature-slug}/IMPLEMENTED.md (as-built handoff). Use when a feature is shipped, tickets are done, you need an anti-assumption summary, or quick orientation for future agents without rereading the codebase.
+description: After all docs/{nn}-{feature-slug}/tickets/ are implemented and merged, verify code against PRD, IMPLEMENTATION, and tickets, then write docs/{nn}-{feature-slug}/IMPLEMENTED.md (as-built handoff). Use when a feature is shipped, tickets are done, you need an anti-assumption summary, or quick orientation for future agents without rereading the codebase.
 ---
 
 # Finish feature
@@ -11,9 +11,9 @@ Close the loop after **[to-tickets](../to-tickets/SKILL.md)**: produce a **verif
 
 ## Quick start
 
-- **Input:** Completed `docs/{feature-slug}/tickets/*.md` plus repo state.
+- **Input:** Completed `docs/{nn}-{feature-slug}/tickets/*.md` plus repo state.
 - **Do:** Verify shipped behavior against PRD, implementation outline, and tickets.
-- **Output:** `docs/{feature-slug}/IMPLEMENTED.md`.
+- **Output:** `docs/{nn}-{feature-slug}/IMPLEMENTED.md`.
 - **Next:** Use it as the future-agent handoff.
 
 ## References
@@ -26,7 +26,7 @@ Close the loop after **[to-tickets](../to-tickets/SKILL.md)**: produce a **verif
 
 ## When to use
 
-- Every ticket under **`docs/{feature-slug}/tickets/`** is **done** (merged, or verified complete on the branch the user specifies)
+- Every ticket under **`docs/{nn}-{feature-slug}/tickets/`** is **done** (merged, or verified complete on the branch the user specifies)
 - User asks for a **feature handoff**, **as-built doc**, **ship notes**, or **what we implemented**
 - Future work on the same slice should avoid **guesswork** and **ticket drift**
 
@@ -40,7 +40,7 @@ Close the loop after **[to-tickets](../to-tickets/SKILL.md)**: produce a **verif
 
 Write:
 
-**`{project-root}/docs/{feature-slug}/IMPLEMENTED.md`**
+**`{project-root}/docs/{nn}-{feature-slug}/IMPLEMENTED.md`**
 
 **Filename override:** If **`AGENTS.md`**, **`CONTRIBUTING.md`**, or an explicit user instruction defines a different as-built filename (e.g. `AS-BUILT.md`, `SHIP-NOTES.md`), use that name **in the same directory** and keep the **same section contract** as [`references/implemented-template.md`](references/implemented-template.md).
 
@@ -48,25 +48,25 @@ Write:
 
 You MUST have:
 
-1. **`docs/{feature-slug}/PRD.md`**
-2. **`docs/{feature-slug}/tickets/*.md`** (all slice tickets — read **every** file)
+1. **`docs/{nn}-{feature-slug}/PRD.md`**
+2. **`docs/{nn}-{feature-slug}/tickets/*.md`** (all slice tickets — read **every** file)
 3. Target **project root** (workspace or path the user gives)
 
 Recommended:
 
-4. **`docs/{feature-slug}/IMPLEMENTATION.md`** — sequencing and increment traceability
+4. **`docs/{nn}-{feature-slug}/IMPLEMENTATION.md`** — sequencing and increment traceability
 
 If **`IMPLEMENTATION.md`** is missing: proceed from **PRD + tickets**, and note reduced traceability under **Ticket traceability** / **Verification** in **`IMPLEMENTED.md`**.
 
 ## Process
 
-1. **Resolve** `{feature-slug}`, `{project-root}`, and output filename (default **`IMPLEMENTED.md`**).
+1. **Resolve** `{nn}-{feature-slug}`, `{project-root}`, and output filename (default **`IMPLEMENTED.md`**).
 2. **Read** `PRD.md`, `IMPLEMENTATION.md` (if present), and **all** ticket files — extract claimed paths, flags, migrations, APIs, verification commands.
 3. **Verify** using [`references/verification-checklist.md`](references/verification-checklist.md): confirm paths and behavior claims against the repo (read/grep); run **narrow, safe** test/lint commands from tickets when listed; record **explicit unverified** where you cannot verify.
 4. **Draft** **`IMPLEMENTED.md`** from [`references/implemented-template.md`](references/implemented-template.md). Prefer tables, bullets, and repo-relative paths; include **Non-goals & do-not-assume** and any **ticket ↔ code drift**.
 5. Check whether shipped behavior introduced or clarified durable domain vocabulary. If so, update `CONTEXT.md` when the user has authorized context edits; otherwise flag the suggested glossary update in chat.
 6. If finishing work in this skill collection itself, remind the agent to update the repo-level `CHANGELOG.md` with the changes made.
-7. **Write** the file at the resolved path (create **`docs/{feature-slug}/`** only if absent and appropriate).
+7. **Write** the file at the resolved path (create **`docs/{nn}-{feature-slug}/`** only if absent and appropriate).
 8. **Confirm** in chat: path written; **`TBD` / unverified** items; **drift** between tickets and code.
 
 ## Optional follow-up
@@ -82,6 +82,6 @@ If **`IMPLEMENTATION.md`** is missing: proceed from **PRD + tickets**, and note 
 ## Context template
 
 - **Project root:** [path]
-- **`{feature-slug}`:** [kebab-case slug]
+- **`{nn}-{feature-slug}`:** [zero-padded slice id + kebab-case slug]
 - **Branch / merge state (if relevant):** [e.g. all on `main`]
 - **Output filename (if not default):** [e.g. `AS-BUILT.md`]

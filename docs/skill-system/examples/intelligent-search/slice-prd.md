@@ -4,7 +4,7 @@
 
 - **Parent PRD:** `docs/intelligent-search/PRD.md`
 - **Example source:** [`parent-prd.md`](parent-prd.md)
-- **Slice list:** [`vertical-slices.md`](vertical-slices.md)
+- **Slice list:** [`vertical-slices.md`](vertical-slices.md), equivalent to `docs/intelligent-search/FEATURES.md`
 
 ## Parent traceability
 

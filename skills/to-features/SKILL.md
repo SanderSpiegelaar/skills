@@ -13,7 +13,7 @@ Issue tracker wiring and triage labels should already exist before optional publ
 
 - **Input:** `docs/{initiative-slug}/PRD.md`.
 - **Do:** Break the PRD into vertical slices in TDD order.
-- **Output:** Slice 0..n list with dependencies, PRD trace, TDD notes, and verification.
+- **Output:** `docs/{initiative-slug}/FEATURES.md` with Slice 0..n, dependencies, PRD trace, TDD notes, and verification.
 - **Next:** Run **to-feature-prd** for one selected slice.
 
 ## When to use
@@ -61,9 +61,10 @@ If `CONTEXT.md` or `CONTEXT-MAP.md` exists, preserve the project's domain vocabu
 2. **Draft slices** obeying the vertical slice rules and TDD ordering rubric
 3. **Number** slices in implementation order only: **Slice 0**, **Slice 1**, … (**0-based**)
 4. **Dependencies** between slices use these ids only (e.g. `Depends on: Slice 0`), never issue numbers
-5. **Present** output using the template below
-6. **Confirm** with the user: granularity, dependency edges, tracer placement (Slice 0), and HITL/AFK labels if used
-7. **Iterate** until approved. Recommended durable route: run **to-feature-prd** on one selected slice, then **to-implementation-doc**, then **to-tickets**. Fast route: hand the approved list to **to-tickets** only when there is already enough detail to write implementation tickets safely.
+5. **Resolve `{initiative-slug}`** from the parent PRD path; if the PRD was not loaded from `docs/{initiative-slug}/PRD.md`, derive a lowercase ASCII kebab-case slug from the initiative title unless the user provides one
+6. **Write the draft** using the template below to `docs/{initiative-slug}/FEATURES.md`; create the directory if needed
+7. **Confirm** with the user: report the path and ask for approval or edits to granularity, dependency edges, tracer placement (Slice 0), and HITL/AFK labels if used
+8. **Iterate in the same file** until approved. Recommended durable route: run **to-feature-prd** on one selected slice, then **to-implementation-doc**, then **to-tickets**. Fast route: hand the approved list to **to-tickets** only when there is already enough detail to write implementation tickets safely.
 
 ## Output template
 

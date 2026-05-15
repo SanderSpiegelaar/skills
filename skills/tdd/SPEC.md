@@ -2,7 +2,7 @@
 
 ## Intent
 
-**tdd** implements features or fixes through RED-GREEN-REFACTOR. When invoked from the core workflow, it consumes one ticket under `docs/{feature-slug}/tickets/` plus referenced PRD and implementation docs.
+**tdd** implements features or fixes through RED-GREEN-REFACTOR. When invoked from the core workflow, it consumes one ticket under `docs/{nn}-{feature-slug}/tickets/` plus referenced PRD and implementation docs.
 
 ## Scope
 
@@ -31,8 +31,8 @@ Out of scope:
 Authoritative sources:
 
 - Assigned ticket
-- Referenced `docs/{feature-slug}/PRD.md`
-- Referenced `docs/{feature-slug}/IMPLEMENTATION.md`
+- Referenced `docs/{nn}-{feature-slug}/PRD.md`
+- Referenced `docs/{nn}-{feature-slug}/IMPLEMENTATION.md`
 - Relevant `CONTEXT.md`, ADRs, and repo test conventions
 - `references/` guidance for tests, mocking, interfaces, refactoring, deep modules, and horizontal-slice avoidance
 

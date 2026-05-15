@@ -2,14 +2,14 @@
 
 ## Intent
 
-**to-implementation-doc** turns a slice-scoped **`docs/{feature-slug}/PRD.md`** (from **to-feature-prd**) into a co-located **`docs/{feature-slug}/IMPLEMENTATION.md`**: a **high-level** outline whose main section is **proposed vertical increments** mapped to PRD acceptance criteria, so **to-tickets** can produce numbered markdown tickets under **`docs/{feature-slug}/tickets/`** without re-deriving sequencing from the PRD alone.
+**to-implementation-doc** turns a slice-scoped **`docs/{nn}-{feature-slug}/PRD.md`** (from **to-feature-prd**) into a co-located **`docs/{nn}-{feature-slug}/IMPLEMENTATION.md`**: a **high-level** outline whose main section is **proposed vertical increments** mapped to PRD acceptance criteria, so **to-tickets** can produce numbered markdown tickets under **`docs/{nn}-{feature-slug}/tickets/`** without re-deriving sequencing from the PRD alone.
 
 ## Scope
 
 In scope:
 
 - Input contract tied to **to-feature-prd** output path and slug rules
-- Default output at `{project-root}/docs/{feature-slug}/IMPLEMENTATION.md`
+- Default output at `{project-root}/docs/{nn}-{feature-slug}/IMPLEMENTATION.md`
 - Ticket-oriented template (work breakdown, dependencies, traceability, verification, handoff)
 - Optional shallow codebase / `CONTEXT.md` / ADR read for vocabulary only (no scope expansion)
 
@@ -27,7 +27,7 @@ Out of scope:
 
 ## Runtime Contract
 
-- **Required inputs:** **`docs/{feature-slug}/PRD.md`** (path or body); same **`{feature-slug}`** for output directory
+- **Required inputs:** **`docs/{nn}-{feature-slug}/PRD.md`** (path or body); same numbered feature directory for output
 - **Required outputs:** Markdown file **`IMPLEMENTATION.md`** using the template in **`SKILL.md`**, with **Proposed work breakdown (for ticketing)** populated as numbered vertical increments with PRD traceability
 - **Non-negotiable constraints:** No new scope beyond the PRD; increments must be **vertical** and **tracer-first** when the PRD implies a tracer bullet; do not paste the entire parent PRD
 - **Expected bundled files:** `references/implementation-template.md` and `references/increment-rules.md`
@@ -35,7 +35,7 @@ Out of scope:
 ## Downstream Consumer
 
 - **to-tickets** should prefer **`PRD.md` + `IMPLEMENTATION.md`**, reading **`IMPLEMENTATION.md`** first for sequencing and dependencies, **`PRD.md`** for acceptance and scope
-- **Default output:** numbered markdown files under **`docs/{feature-slug}/tickets/`**; issue-tracker publication only when the user explicitly requests it
+- **Default output:** numbered markdown files under **`docs/{nn}-{feature-slug}/tickets/`**; issue-tracker publication only when the user explicitly requests it
 
 ## Source And Evidence Model
 

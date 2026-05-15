@@ -1,15 +1,15 @@
 ---
 name: to-tickets
-description: Break implementation increments into tracer-bullet vertical tickets as numbered markdown files under docs/{feature-slug}/tickets/, using a unified template. Use when the user has docs/{feature-slug}/PRD.md and preferably docs/{feature-slug}/IMPLEMENTATION.md and wants AFK-ready implementation tickets; issue-tracker publication is optional when explicitly requested.
+description: Break implementation increments into tracer-bullet vertical tickets as numbered markdown files under docs/{nn}-{feature-slug}/tickets/, using a unified template. Use when the user has docs/{nn}-{feature-slug}/PRD.md and preferably docs/{nn}-{feature-slug}/IMPLEMENTATION.md and wants AFK-ready implementation tickets; issue-tracker publication is optional when explicitly requested.
 ---
 
 # To Tickets
 
 ## Quick start
 
-- **Input:** `docs/{feature-slug}/PRD.md` and `docs/{feature-slug}/IMPLEMENTATION.md`.
+- **Input:** `docs/{nn}-{feature-slug}/PRD.md` and `docs/{nn}-{feature-slug}/IMPLEMENTATION.md`.
 - **Do:** Approve the increment breakdown and write ordered ticket files.
-- **Output:** `docs/{feature-slug}/tickets/{nn}-{slug}.md`.
+- **Output:** `docs/{nn}-{feature-slug}/tickets/{nn}-{slug}.md`.
 - **Next:** Run **tdd** per ticket.
 
 ## Workflow

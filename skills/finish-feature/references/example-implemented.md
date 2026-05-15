@@ -4,7 +4,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Slug** | `tracer-qa-path` |
+| **Slug** | `00-tracer-qa-path` |
 | **Status** | Example shipped |
 | **PRD** | `PRD.md` |
 | **Implementation outline** | `IMPLEMENTATION.md` |

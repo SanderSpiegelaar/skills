@@ -2,7 +2,7 @@
 
 ## Intent
 
-**to-feature-prd** turns **one vertical slice** from a **to-features** breakdown into a **thin PRD** saved as `docs/{feature-slug}/PRD.md` in the target project. A short **Ask User Question** sanity pass reduces ambiguous scope before writing the file.
+**to-feature-prd** turns **one numbered vertical slice** from a **to-features** breakdown into a **thin PRD** saved as `docs/{nn}-{feature-slug}/PRD.md` in the target project. A short **Ask User Question** sanity pass reduces ambiguous scope before writing the file.
 
 ## Scope
 
@@ -10,13 +10,13 @@ In scope:
 
 - Consuming a single slice block in the format defined in `skills/to-features/SKILL.md`
 - One or two rounds of structured user questions before drafting
-- Filesystem output at project root: `docs/{feature-slug}/PRD.md`
+- Filesystem output at project root: `docs/{nn}-{feature-slug}/PRD.md`
 
 Out of scope:
 
 - Authoring or publishing the **parent** PRD (use **to-prd**)
 - Creating slice lists (use **to-features**)
-- Numbered implementation ticket files under **`docs/{feature-slug}/tickets/`** (use **to-tickets**)
+- Numbered implementation ticket files under **`docs/{nn}-{feature-slug}/tickets/`** (use **to-tickets**)
 - Full domain grilling with `CONTEXT.md` / ADR updates (use **grill** unless the user asks)
 
 ## Users And Trigger Context
@@ -28,7 +28,7 @@ Out of scope:
 ## Runtime Contract
 
 - **Required first actions:** Obtain exactly one slice + **PRD source**; refuse to fabricate scope beyond **Delivers** / **PRD trace** / **Verify**
-- **Required outputs:** Markdown file at `docs/{feature-slug}/PRD.md` using the template in `SKILL.md`
+- **Required outputs:** Markdown file at `docs/{nn}-{feature-slug}/PRD.md` using the template in `SKILL.md`; `{nn}` is the zero-padded slice id from the selected `Slice k` heading
 - **Non-negotiable constraints:** Ask User Question for the sanity pass when available; slug rules in `SKILL.md`; no tracker publish in this skill
 - **Expected bundled files loaded at runtime:** `references/slice-prd-template.md` and `references/path-rules.md` when drafting or validating output
 

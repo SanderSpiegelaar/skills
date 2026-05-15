@@ -2,14 +2,14 @@
 
 ## Intent
 
-**to-tickets** turns **`docs/{feature-slug}/PRD.md`** ([to-feature-prd](../to-feature-prd/SKILL.md)) plus **`docs/{feature-slug}/IMPLEMENTATION.md`** ([to-implementation-doc](../to-implementation-doc/SKILL.md)) into **numbered markdown implementation tickets** under **`docs/{feature-slug}/tickets/`**, each representing one **tracer-bullet implementation increment** inside the selected feature slice and following a **unified ticket template**: **Summary**, **Documentation references**, **Implementation details** (including **Engineering context (libraries, patterns, testability)** alongside approach, layers/boundaries, risks, verification), **Acceptance criteria**, and **Implementation todos**. Files are the **canonical default deliverable**; issue-tracker publication is **optional** and only when the user explicitly requests it.
+**to-tickets** turns **`docs/{nn}-{feature-slug}/PRD.md`** ([to-feature-prd](../to-feature-prd/SKILL.md)) plus **`docs/{nn}-{feature-slug}/IMPLEMENTATION.md`** ([to-implementation-doc](../to-implementation-doc/SKILL.md)) into **numbered markdown implementation tickets** under **`docs/{nn}-{feature-slug}/tickets/`**, each representing one **tracer-bullet implementation increment** inside the selected feature slice and following a **unified ticket template**: **Summary**, **Documentation references**, **Implementation details** (including **Engineering context (libraries, patterns, testability)** alongside approach, layers/boundaries, risks, verification), **Acceptance criteria**, and **Implementation todos**. Files are the **canonical default deliverable**; issue-tracker publication is **optional** and only when the user explicitly requests it.
 
 ## Scope
 
 In scope:
 
 - Consuming slice **`PRD.md`** + **`IMPLEMENTATION.md`** with **IMPLEMENTATION first**, **PRD** second for acceptance and scope
-- Filesystem output: **`{project-root}/docs/{feature-slug}/tickets/{nn}-{slug}.md`** using the unified template in **`SKILL.md`**
+- Filesystem output: **`{project-root}/docs/{nn}-{feature-slug}/tickets/{nn}-{slug}.md`** using the unified template in **`SKILL.md`**
 - Implementation ordering via numeric filename prefixes (dependency-aware)
 - User quiz loop before writing files
 - Vertical-increment rules (HITL / AFK, end-to-end behavior)
@@ -27,9 +27,9 @@ Out of scope:
 
 ## Runtime Contract
 
-- **Preferred inputs:** **`docs/{feature-slug}/PRD.md`** and **`docs/{feature-slug}/IMPLEMENTATION.md`** (paths or bodies)
+- **Preferred inputs:** **`docs/{nn}-{feature-slug}/PRD.md`** and **`docs/{nn}-{feature-slug}/IMPLEMENTATION.md`** (paths or bodies)
 - **Fallback:** **`PRD.md` only** — allowed **only after explicit user confirmation** that coarser sequencing is acceptable (otherwise steer to **to-implementation-doc**)
-- **Required outputs:** One **`*.md`** file per approved implementation increment under **`docs/{feature-slug}/tickets/`**, ordered by implementation sequence; body **must** follow **`SKILL.md`** unified template (in order): **Summary** (type, blocked-by, conflicts/overlaps); **Documentation references** (PRD + IMPLEMENTATION paths, traceability, optional CONTEXT/ADR/AGENTS); **Implementation details** (approach, layers/boundaries, **engineering context** (libraries, patterns, testability, snippet discipline per **`SKILL.md`**), key risks/gotchas, verification); **Acceptance criteria** (definition of done); **Implementation todos** (granular checklists)
+- **Required outputs:** One **`*.md`** file per approved implementation increment under **`docs/{nn}-{feature-slug}/tickets/`**, ordered by implementation sequence; body **must** follow **`SKILL.md`** unified template (in order): **Summary** (type, blocked-by, conflicts/overlaps); **Documentation references** (PRD + IMPLEMENTATION paths, traceability, optional CONTEXT/ADR/AGENTS); **Implementation details** (approach, layers/boundaries, **engineering context** (libraries, patterns, testability, snippet discipline per **`SKILL.md`**), key risks/gotchas, verification); **Acceptance criteria** (definition of done); **Implementation todos** (granular checklists)
 - **Non-negotiable constraints:** Numeric prefixes reflect dependency order; filenames zero-padded for stable sort; vertical increments only; no tracker publish unless user asks
 - **Expected bundled files:** `references/output-conventions.md`, `references/increment-ticketing-rules.md`, and `references/ticket-template.md`
 
@@ -54,7 +54,7 @@ Authoritative sources:
 ## Validation
 
 - **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-tickets`
-- **Acceptance gates:** Valid frontmatter; explicit **`docs/{feature-slug}/tickets/`** contract; unified ticket template sections documented in references (**Implementation details** includes **engineering context** subsection per template); tracker publish documented as opt-in; IMPLEMENTATION+PRD happy path + PRD-only gated fallback; reference links resolve
+- **Acceptance gates:** Valid frontmatter; explicit **`docs/{nn}-{feature-slug}/tickets/`** contract; unified ticket template sections documented in references (**Implementation details** includes **engineering context** subsection per template); tracker publish documented as opt-in; IMPLEMENTATION+PRD happy path + PRD-only gated fallback; reference links resolve
 
 ## Known Limitations
 

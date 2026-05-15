@@ -1,6 +1,6 @@
 # Ticket file template
 
-Every ticket under `docs/{feature-slug}/tickets/` must follow this structure.
+Every ticket under `docs/{nn}-{feature-slug}/tickets/` must follow this structure.
 
 ```markdown
 # [Ticket title — same as increment title]
@@ -16,8 +16,8 @@ Every ticket under `docs/{feature-slug}/tickets/` must follow this structure.
 
 ## Documentation references
 
-- **Slice PRD:** `docs/{feature-slug}/PRD.md`
-- **Implementation outline:** `docs/{feature-slug}/IMPLEMENTATION.md`
+- **Slice PRD:** `docs/{nn}-{feature-slug}/PRD.md`
+- **Implementation outline:** `docs/{nn}-{feature-slug}/IMPLEMENTATION.md`
 - **Traceability:**
   - **IMPLEMENTATION.md increment:** #… (row index from Proposed work breakdown, if applicable)
   - **PRD:** requirement / acceptance-criteria references this increment satisfies

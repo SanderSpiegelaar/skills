@@ -7,10 +7,11 @@ This is the canonical artifact contract for the core planning-to-implementation 
 | Stage | Artifact | Producing skill | Consuming skill |
 |-------|----------|-----------------|-----------------|
 | Parent requirements | `docs/{initiative-slug}/PRD.md` | `to-prd` | `to-features` |
-| Slice requirements | `docs/{feature-slug}/PRD.md` | `to-feature-prd` | `to-implementation-doc`, `to-tickets`, `tdd`, `finish-feature` |
-| Implementation outline | `docs/{feature-slug}/IMPLEMENTATION.md` | `to-implementation-doc` | `to-tickets`, `tdd`, `finish-feature` |
-| Implementation tickets | `docs/{feature-slug}/tickets/{nn}-{slug}.md` | `to-tickets` | `tdd`, `finish-feature` |
-| Verified as-built handoff | `docs/{feature-slug}/IMPLEMENTED.md` | `finish-feature` | future agents and maintainers |
+| Feature slices | `docs/{initiative-slug}/FEATURES.md` | `to-features` | `to-feature-prd` |
+| Slice requirements | `docs/{nn}-{feature-slug}/PRD.md` | `to-feature-prd` | `to-implementation-doc`, `to-tickets`, `tdd`, `finish-feature` |
+| Implementation outline | `docs/{nn}-{feature-slug}/IMPLEMENTATION.md` | `to-implementation-doc` | `to-tickets`, `tdd`, `finish-feature` |
+| Implementation tickets | `docs/{nn}-{feature-slug}/tickets/{nn}-{slug}.md` | `to-tickets` | `tdd`, `finish-feature` |
+| Verified as-built handoff | `docs/{nn}-{feature-slug}/IMPLEMENTED.md` | `finish-feature` | future agents and maintainers |
 
 ## Handoff order
 
@@ -19,8 +20,8 @@ This is the canonical artifact contract for the core planning-to-implementation 
 2. `agents-md` keeps root agent instructions concise and reference-backed.
 3. `grill` sharpens domain language, choices, `CONTEXT.md`, and ADRs before formal planning.
 4. `to-prd` writes the parent PRD at `docs/{initiative-slug}/PRD.md`.
-5. `to-features` decomposes that PRD into ordered vertical slices.
-6. `to-feature-prd` turns one selected slice into `docs/{feature-slug}/PRD.md`.
+5. `to-features` decomposes that PRD into ordered vertical slices at `docs/{initiative-slug}/FEATURES.md`.
+6. `to-feature-prd` turns one selected slice into `docs/{nn}-{feature-slug}/PRD.md`.
 7. `to-implementation-doc` turns the slice PRD into ticket-ready vertical increments.
 8. `to-tickets` writes one ticket per approved implementation increment.
 9. `tdd` implements one ticket at a time through RED-GREEN-REFACTOR.
@@ -29,8 +30,9 @@ This is the canonical artifact contract for the core planning-to-implementation 
 ## Naming rules
 
 - `{initiative-slug}` is lowercase ASCII kebab-case, derived from the parent initiative title unless the user provides a slug.
+- `{nn}` is the two-digit, zero-padded slice id from the selected `Slice k` heading.
 - `{feature-slug}` is lowercase ASCII kebab-case, derived from the selected vertical slice title.
-- If a `docs/{feature-slug}/` collision refers to a different slice, append `-slice-{k}`.
+- If a `docs/{nn}-{feature-slug}/` collision refers to a different slice, keep `{nn}` and append a short disambiguator after the title slug.
 - Ticket filenames use zero-padded numeric prefixes so lexical order matches implementation order: `01-...`, `02-...`.
 
 ## Anti-drift rules

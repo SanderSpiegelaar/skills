@@ -1,13 +1,13 @@
 # Implementation outline template
 
-Use this structure for `docs/{feature-slug}/IMPLEMENTATION.md`.
+Use this structure for `docs/{nn}-{feature-slug}/IMPLEMENTATION.md`.
 
 ```markdown
 # Implementation outline — [Slice title from PRD]
 
 ## PRD reference
 
-- **Path:** `docs/{feature-slug}/PRD.md`
+- **Path:** `docs/{nn}-{feature-slug}/PRD.md`
 - **Slice identity:** (from PRD — index, title, type, tracer bullet if any)
 
 ## Goal and constraints
@@ -58,5 +58,5 @@ Do not add new increments during `to-tickets` unless the user confirms a split o
 
 ## Handoff
 
-Use to-tickets with PRD.md and this IMPLEMENTATION.md together. It writes numbered tickets under docs/{feature-slug}/tickets/.
+Use to-tickets with PRD.md and this IMPLEMENTATION.md together. It writes numbered tickets under docs/{nn}-{feature-slug}/tickets/.
 ```

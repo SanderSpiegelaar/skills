@@ -2,7 +2,7 @@
 
 ## Intent
 
-**to-features** turns a **to-prd**-compatible PRD into an ordered list of **vertical feature slices** suitable for **TDD**: **Slice 0** is the tracer bullet; later slices extend behavior in **RED→GREEN**-friendly steps. Slice ids are **0-based** and used consistently for **depends-on** references so the plan stays unambiguous before tracker issues exist.
+**to-features** turns a **to-prd**-compatible PRD into an ordered **`docs/{initiative-slug}/FEATURES.md`** file of **vertical feature slices** suitable for **TDD**: **Slice 0** is the tracer bullet; later slices extend behavior in **RED→GREEN**-friendly steps. Slice ids are **0-based** and used consistently for **depends-on** references so the plan stays unambiguous before tracker issues exist.
 
 ## Scope
 
@@ -11,6 +11,7 @@ In scope:
 - Consuming PRDs shaped like the template in `skills/to-prd/SKILL.md`
 - Vertical (not horizontal) decomposition and TDD-oriented sequencing
 - Explicit **Slice 0…n** output with traceability to user stories and acceptance criteria
+- Writing the slice list to `docs/{initiative-slug}/FEATURES.md`
 - Optional **AFK / HITL** typing when it clarifies blockers
 
 Out of scope:
@@ -28,7 +29,7 @@ Out of scope:
 ## Runtime Contract
 
 - **Required first actions:** Obtain a PRD (or equivalent sections); refuse to fabricate missing scope
-- **Required outputs:** Markdown matching the output template in `SKILL.md` with **0-based** slice numbering and **slice-index-only** dependencies
+- **Required outputs:** `docs/{initiative-slug}/FEATURES.md` containing markdown matching the output template in `SKILL.md` with **0-based** slice numbering and **slice-index-only** dependencies
 - **Non-negotiable constraints:** Vertical slices only; Slice 0 is the tracer bullet; ordering must support incremental RED→GREEN work per **tdd** skill
 - **Expected bundled files loaded at runtime:** `references/example-prd-slices.md` when the agent needs a style example
 
@@ -47,7 +48,7 @@ Data that must not be stored in skill artifacts:
 
 ## Reference Architecture
 
-- **`SKILL.md`:** activation, rules, process, output template
+- **`SKILL.md`:** activation, rules, write process, output template
 - **`SPEC.md`:** this maintenance contract
 - **`references/`:** working example (`example-prd-slices.md`)
 - **`references/evidence/`:** not used initially
@@ -57,7 +58,7 @@ Data that must not be stored in skill artifacts:
 ## Validation
 
 - **Lightweight validation:** `uv run skills/skill-writer/scripts/quick_validate.py skills/to-features`
-- **Acceptance gates:** Valid frontmatter; all `references/` links from `SKILL.md` resolve; output template present; 0-based numbering stated explicitly in `SKILL.md`
+- **Acceptance gates:** Valid frontmatter; all `references/` links from `SKILL.md` resolve; `docs/{initiative-slug}/FEATURES.md` output path present; output template present; 0-based numbering stated explicitly in `SKILL.md`
 
 ## Known Limitations
 

@@ -1,6 +1,6 @@
 ---
 name: to-feature-prd
-description: Turn one vertical slice from to-features into a slice-scoped PRD file after a short Ask User Question sanity pass; writes docs/{feature-slug}/PRD.md in the target project. Use when the user wants a per-slice PRD, feature-folder docs from a slice, or to formalize Slice k before implementation.
+description: Turn one numbered vertical slice from to-features into a slice-scoped PRD file after a short Ask User Question sanity pass; writes docs/{nn}-{feature-slug}/PRD.md in the target project. Use when the user wants a per-slice PRD, feature-folder docs from a slice, or to formalize Slice k before implementation.
 ---
 
 # To Feature PRD
@@ -9,18 +9,18 @@ description: Turn one vertical slice from to-features into a slice-scoped PRD fi
 
 - **Input:** One slice from **to-features** plus parent PRD source.
 - **Do:** Run a short sanity pass and write the slice-scoped PRD.
-- **Output:** `docs/{feature-slug}/PRD.md`.
+- **Output:** `docs/{nn}-{feature-slug}/PRD.md`.
 - **Next:** Run **to-implementation-doc**.
 
 ## Workflow
 
 1. **Require one slice.** The slice must match the [to-features](../to-features/SKILL.md) output shape: title, Type, Tracer bullet, Delivers, PRD trace, Depends on, TDD note, and Verify. If multiple slices are supplied, ask which single slice to document.
 2. **Require PRD source.** Prefer `docs/{initiative-slug}/PRD.md`; otherwise accept URL, repo path, issue link, paste, or excerpt. If missing, ask once before drafting.
-3. **Run a short sanity pass.** Use one batched **Ask User Question** round; use at most two rounds if blockers remain. Cover slice boundaries, ambiguous acceptance, dependency assumptions, HITL risk, and directory slug.
+3. **Run a short sanity pass.** Use one batched **Ask User Question** round; use at most two rounds if blockers remain. Cover slice boundaries, ambiguous acceptance, dependency assumptions, HITL risk, slice number, and directory slug.
 4. **Preserve domain vocabulary.** If `CONTEXT.md` / `CONTEXT-MAP.md` exists, use existing terms. This is not a full [grill](../grill/SKILL.md) session unless the user asks.
-5. **Resolve `{feature-slug}`.** Follow [`references/path-rules.md`](references/path-rules.md).
-6. **Draft and write.** Use [`references/slice-prd-template.md`](references/slice-prd-template.md), link or cite the parent PRD, and write `docs/{feature-slug}/PRD.md`.
-7. **Confirm handoff.** Report the path, chosen slug, remaining `TBD`s, and **to-implementation-doc** as the next step.
+5. **Resolve `{nn}-{feature-slug}`.** Follow [`references/path-rules.md`](references/path-rules.md); preserve the slice number from the `Slice k` heading.
+6. **Draft and write.** Use [`references/slice-prd-template.md`](references/slice-prd-template.md), link or cite the parent PRD, and write `docs/{nn}-{feature-slug}/PRD.md`.
+7. **Confirm handoff.** Report the path, chosen numbered slug, remaining `TBD`s, and **to-implementation-doc** as the next step.
 
 ## Output contract
 

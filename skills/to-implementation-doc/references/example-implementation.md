@@ -2,7 +2,7 @@
 
 ## PRD reference
 
-- **Path:** `docs/tracer-qa-path/PRD.md`
+- **Path:** `docs/00-tracer-qa-path/PRD.md`
 - **Example source:** `example-slice-prd.md`
 - **Slice identity:** Slice 0 — Tracer Q&A path with fixture retrieval; AFK; tracer bullet.
 

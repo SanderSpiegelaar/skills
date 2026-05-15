@@ -1,6 +1,6 @@
 # Template: `IMPLEMENTED.md`
 
-Copy this skeleton into **`docs/{feature-slug}/IMPLEMENTED.md`** (or team override). Strip unused sections rather than filling with fluff. Every **non-empty** bullet should be **verifiable** or explicitly marked **`Unverified`** / **`TBD`**.
+Copy this skeleton into **`docs/{nn}-{feature-slug}/IMPLEMENTED.md`** (or team override). Strip unused sections rather than filling with fluff. Every **non-empty** bullet should be **verifiable** or explicitly marked **`Unverified`** / **`TBD`**.
 
 ````markdown
 # Implemented — [Feature title]
@@ -9,11 +9,11 @@ Copy this skeleton into **`docs/{feature-slug}/IMPLEMENTED.md`** (or team overri
 
 | Field | Value |
 |-------|--------|
-| **Slug** | `{feature-slug}` |
+| **Slug** | `{nn}-{feature-slug}` |
 | **Status** | Shipped |
-| **PRD** | `docs/{feature-slug}/PRD.md` |
-| **Implementation outline** | `docs/{feature-slug}/IMPLEMENTATION.md` or **`Missing`** |
-| **Tickets dir** | `docs/{feature-slug}/tickets/` |
+| **PRD** | `docs/{nn}-{feature-slug}/PRD.md` |
+| **Implementation outline** | `docs/{nn}-{feature-slug}/IMPLEMENTATION.md` or **`Missing`** |
+| **Tickets dir** | `docs/{nn}-{feature-slug}/tickets/` |
 | **This doc generated** | [ISO date or **`TBD`**] |
 
 ## Future agent quickstart

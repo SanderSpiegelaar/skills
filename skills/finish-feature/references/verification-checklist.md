@@ -1,12 +1,12 @@
 # Verification checklist (finish-feature)
 
-Use while reading **`docs/{feature-slug}/PRD.md`**, **`IMPLEMENTATION.md`** (if any), **`tickets/*.md`**, and the **repository**. Goal: **`IMPLEMENTED.md`** reflects **observed reality**, not ticket prose alone.
+Use while reading **`docs/{nn}-{feature-slug}/PRD.md`**, **`IMPLEMENTATION.md`** (if any), **`tickets/*.md`**, and the **repository**. Goal: **`IMPLEMENTED.md`** reflects **observed reality**, not ticket prose alone.
 
 ## 1. Scope and completeness
 
 | Step | Action |
 |------|--------|
-| 1a | Confirm **every** file in **`docs/{feature-slug}/tickets/`** was opened and considered |
+| 1a | Confirm **every** file in **`docs/{nn}-{feature-slug}/tickets/`** was opened and considered |
 | 1b | List ticket filenames in **`IMPLEMENTED.md` → Ticket traceability** |
 | 1c | Compare PRD **out of scope** / deferred items vs code — carry into **Non-goals and do-not-assume** |
 

@@ -1,6 +1,6 @@
 # Slice PRD template
 
-Use this structure for `docs/{feature-slug}/PRD.md`.
+Use this structure for `docs/{nn}-{feature-slug}/PRD.md`.
 
 ```markdown
 # [Slice k — title]
